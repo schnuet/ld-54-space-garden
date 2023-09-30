@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://5cygv1orl3un"]
+
+[ext_resource type="Script" path="res://scenes/PlantButton/PlantButton.gd" id="1_huqp7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rnbtm"]
+radius = 32.0
+
+[node name="PlantButton" type="Area2D"]
+position = Vector2(64, 160)
+script = ExtResource("1_huqp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rnbtm")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfaiu0jbdct85"]
+
+[ext_resource type="Script" path="res://scenes/Plant/PlantFrank.gd" id="1_qciyc"]
+
+[node name="PlantFrank" type="Area2D"]
+script = ExtResource("1_qciyc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 64, 0, 64, -64, 128, -64, 128, 0, 192, 0, 192, 64, 128, 64, 128, 128, 64, 128, 64, 64, 0, 64)

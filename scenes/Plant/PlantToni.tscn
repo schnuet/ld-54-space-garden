@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dav4il0vncmbj"]
+
+[ext_resource type="Script" path="res://scenes/Plant/PlantToni.gd" id="1_3aqds"]
+
+[node name="PlantToni" type="Area2D"]
+script = ExtResource("1_3aqds")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 64, 0, 64, -64, 192, -64, 192, 0, 128, 0, 128, 64, 0, 64)
