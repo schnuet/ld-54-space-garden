@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://djrwo2vndst3q"]
+
+[ext_resource type="Script" path="res://screens/IntroScene.gd" id="1_665ax"]
+[ext_resource type="Theme" uid="uid://dd2xtxl27npqh" path="res://gui/theme.tres" id="3_8xsn3"]
+[ext_resource type="Texture2D" uid="uid://3tehohrhspoi" path="res://screens/Intro_Office.png" id="4_r7n15"]
+
+[node name="IntroScene" type="Node2D"]
+script = ExtResource("1_665ax")
+
+[node name="IntroOffice" type="Sprite2D" parent="."]
+texture = ExtResource("4_r7n15")
+centered = false
+flip_h = true
+
+[node name="SkipButton" type="Button" parent="."]
+offset_left = 1130.0
+offset_top = 24.0
+offset_right = 1252.0
+offset_bottom = 64.0
+theme = ExtResource("3_8xsn3")
+text = "Skip Intro"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
