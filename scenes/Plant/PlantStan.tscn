@@ -3,7 +3,15 @@
 [ext_resource type="Script" path="res://scenes/Plant/PlantStan.gd" id="1_hjcoe"]
 
 [node name="PlantStan" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_hjcoe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 0, 128, 0, 128, 64, 64, 64, 64, 128, 0, 128)
+polygon = PackedVector2Array(8, 8, 120, 8, 120, 56, 56, 56, 56, 120, 8, 120)
+
+[node name="BuildCollisionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
+polygon = PackedVector2Array(-48, -48, 176, -48, 176, 112, 112, 112, 112, 184, -48, 184)

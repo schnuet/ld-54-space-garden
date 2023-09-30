@@ -1,16 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://315nidr5ptjq"]
+[gd_scene load_steps=8 format=3 uid="uid://315nidr5ptjq"]
 
 [ext_resource type="Script" path="res://scenes/Plant/PlantBHi.gd" id="1_yh5wo"]
+[ext_resource type="Texture2D" uid="uid://pfxhrjjvqgcn" path="res://scenes/Plant/space_garden_final_plant_1.png" id="2_1lvep"]
+[ext_resource type="Texture2D" uid="uid://b3l8ekoc8oyml" path="res://scenes/Plant/space_garden_mid_plant_1.png" id="3_jllxo"]
+[ext_resource type="Texture2D" uid="uid://mpmjmhma8rp6" path="res://scenes/Plant/space_garden_sapling_plant_1.png" id="4_v4plu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h7qy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1lvep")
+}],
+"loop": true,
+"name": &"final",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jllxo")
+}],
+"loop": true,
+"name": &"mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v4plu")
+}],
+"loop": true,
+"name": &"sapling",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntare"]
-size = Vector2(64, 64)
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjvlp"]
+size = Vector2(160, 160)
 
 [node name="PlantBHi" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_yh5wo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 16)
+sprite_frames = SubResource("SpriteFrames_2h7qy")
+animation = &"final"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BuildCollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_ntare")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+debug_color = Color(1, 0.933333, 0, 0.419608)
+
+[node name="BuildCollisionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_cjvlp")
+debug_color = Color(0.619608, 0.172549, 0.286275, 0.419608)

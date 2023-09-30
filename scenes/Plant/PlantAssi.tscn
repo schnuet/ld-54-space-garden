@@ -1,13 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca7xwg506jlp5"]
+[gd_scene load_steps=4 format=3 uid="uid://ca7xwg506jlp5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/PlantAssi.gd" id="1_fpev7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3ga"]
-size = Vector2(128, 128)
+size = Vector2(112, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1lec"]
+size = Vector2(224, 224)
 
 [node name="PlantAssi" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_fpev7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_ci3ga")
+
+[node name="BuildCollisionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_v1lec")
+debug_color = Color(0.74902, 0.0823529, 0.282353, 0.419608)
