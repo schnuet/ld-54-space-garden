@@ -40,9 +40,11 @@ func _ready():
 	sprite.play();
 
 func set_state(new_state: GrowthState):
+	if not planted:
+		return;
+
 	growth_state = new_state;
 	$AnimatedSprite2D.animation = GrowthState.keys()[new_state];
-
 
 
 func get_all_neighbour_plants() -> Array[Plant]:
@@ -104,11 +106,11 @@ func is_neutralized():
 func affect_plant(plant: Plant):
 	pass
 
-func transform_to_plant(plant: Plant):
-	var map = get_tree().get_first_node_in_group("plant_map") as PlantMap;
-	var current_pos = global_position;
-	queue_free();
-	map.create_plant(plant.type, current_pos);
+#func transform_to_plant(plant: Plant):
+#	var map = get_tree().get_first_node_in_group("plant_map") as PlantMap;
+#	var current_pos = global_position;
+#	queue_free();
+#	map.create_plant(plant.type, current_pos);
 
 func _on_state_change(new_state: GrowthState, old_state: GrowthState):
 	pass
@@ -162,5 +164,6 @@ func _on_mouse_exited():
 
 func _handle_click(mouse_position: Vector2):
 	print("plant click ", self);
+	
 	if growth_state == GrowthState.dead:
 		harvest();

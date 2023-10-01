@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0t1lcxkscwua"]
+[gd_scene load_steps=12 format=3 uid="uid://d0t1lcxkscwua"]
 
 [ext_resource type="Texture2D" uid="uid://c7fxxyieryuut" path="res://scenes/PlantMap/space_garden_floor_tile_1.png" id="1_cs77c"]
 [ext_resource type="Texture2D" uid="uid://ckpt6wt1x8byq" path="res://scenes/PlantMap/bg_placeholder.png" id="1_d1pui"]
@@ -134,6 +134,18 @@ sources/0 = SubResource("TileSetAtlasSource_hem13")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn8h3"]
 size = Vector2(1300, 739)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq1v"]
+size = Vector2(128, 192)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0s2m"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydifu"]
+size = Vector2(192, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygisn"]
+size = Vector2(320, 64)
+
 [node name="PlantMap" type="TileMap" groups=["plant_map"]]
 tile_set = SubResource("TileSet_gekju")
 format = 2
@@ -156,5 +168,33 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="BuildCursor"]
 offset_right = 60.0
 offset_bottom = 59.0
+
+[node name="Blocker1" type="Area2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker1"]
+position = Vector2(64, 96)
+shape = SubResource("RectangleShape2D_3qq1v")
+
+[node name="Blocker2" type="Area2D" parent="."]
+position = Vector2(192, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker2"]
+position = Vector2(64, 64)
+shape = SubResource("RectangleShape2D_y0s2m")
+
+[node name="Blocker3" type="Area2D" parent="."]
+position = Vector2(320, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker3"]
+position = Vector2(96, 64)
+shape = SubResource("RectangleShape2D_ydifu")
+
+[node name="Blocker4" type="Area2D" parent="."]
+position = Vector2(192, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker4"]
+position = Vector2(160, 32)
+shape = SubResource("RectangleShape2D_ygisn")
 
 [connection signal="input_event" from="MouseCollider" to="." method="_on_mouse_collider_input_event"]
