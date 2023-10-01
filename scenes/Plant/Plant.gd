@@ -72,6 +72,7 @@ func kill():
 	if growth_state != GrowthState.dead:
 		change_to_state(GrowthState.dead);
 	
+	
 func harvest():
 	print("DELETE ", type);
 	#if growth_state == GrowthState.dead:
@@ -97,10 +98,8 @@ func deneutralize():
 	if growth_state != GrowthState.dead:
 		neutralize_count -= 1;
 
-func is_neutralized():
-	if growth_state != GrowthState.dead:
-		return neutralize_count > 0;
-
+func is_neutralized() -> bool:
+	return neutralize_count > 0;
 
 func affect_plant(plant: Plant):
 	pass

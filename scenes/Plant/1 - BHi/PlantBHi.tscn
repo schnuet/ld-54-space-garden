@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://315nidr5ptjq"]
+[gd_scene load_steps=10 format=3 uid="uid://315nidr5ptjq"]
 
 [ext_resource type="Script" path="res://scenes/Plant/1 - BHi/PlantBHi.gd" id="1_e1m12"]
 [ext_resource type="Texture2D" uid="uid://pfxhrjjvqgcn" path="res://scenes/Plant/1 - BHi/space_garden_final_plant_1.png" id="2_epvkn"]
+[ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_uitf2"]
 [ext_resource type="Texture2D" uid="uid://ct5uqsmgdul3n" path="res://scenes/Plant/1 - BHi/space_garden_infected_plant_1.png" id="3_2avsm"]
 [ext_resource type="Texture2D" uid="uid://b3l8ekoc8oyml" path="res://scenes/Plant/1 - BHi/space_garden_mid_plant_1.png" id="4_gcgnx"]
 [ext_resource type="Texture2D" uid="uid://mpmjmhma8rp6" path="res://scenes/Plant/1 - BHi/space_garden_sapling_plant_1.png" id="5_o08gd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2h7qy"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uitf2")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_epvkn")
@@ -54,7 +63,7 @@ script = ExtResource("1_e1m12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, 16)
 sprite_frames = SubResource("SpriteFrames_2h7qy")
-animation = &"final"
+animation = &"sapling"
 
 [node name="BuildCollisionBox" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsnlb78psvkqs"]
+[gd_scene load_steps=7 format=3 uid="uid://bsnlb78psvkqs"]
 
 [ext_resource type="Script" path="res://scenes/Plant/2 - Stan/PlantStan.gd" id="1_b0cf3"]
+[ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_pfdgy"]
 [ext_resource type="Texture2D" uid="uid://fcngx2xde7h1" path="res://scenes/Plant/2 - Stan/space_garden_final_plant_2.png" id="2_y1e4c"]
 [ext_resource type="Texture2D" uid="uid://di0hktljpi027" path="res://scenes/Plant/2 - Stan/space_garden_mid_plant_2.png" id="3_xgkq6"]
 [ext_resource type="Texture2D" uid="uid://bwjc2migyo2dn" path="res://scenes/Plant/2 - Stan/space_garden_sapling_plant_2.png" id="4_exeq0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nb7nw"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pfdgy")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_y1e4c")
@@ -33,7 +42,6 @@ animations = [{
 }]
 
 [node name="PlantStan" type="Area2D"]
-position = Vector2(0, -64)
 collision_layer = 5
 script = ExtResource("1_b0cf3")
 
@@ -44,7 +52,6 @@ polygon = PackedVector2Array(56, 8, 56, 72, 120, 72, 120, 120, 8, 120, 8, 8)
 collision_layer = 32768
 collision_mask = 4
 metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 visible = false

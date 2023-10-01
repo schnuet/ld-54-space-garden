@@ -21,6 +21,7 @@ SceneManager="*res://addons/scene_manager/SceneManager.tscn"
 MusicPlayer="*res://autoload/MusicPlayer.tscn"
 DialogOverlay="*res://autoload/DialogOverlay/DialogOverlay.tscn"
 Game="*res://autoload/Game.tscn"
+EscMenu="*res://autoload/ESC_Menu.tscn"
 
 [display]
 
