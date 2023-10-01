@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7yi8ucs7tcsg"
-path="res://.godot/imported/button_standard_lila.png-5e6eddccb996a27e1c5cdd8dba4b98e3.ctex"
+uid="uid://r766y3rtegbm"
+path="res://.godot/imported/button_standard_.png-330f51d173d1fbd6ae49ca3e739bc8db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/PlantButton/button_standard_lila.png"
-dest_files=["res://.godot/imported/button_standard_lila.png-5e6eddccb996a27e1c5cdd8dba4b98e3.ctex"]
+source_file="res://scenes/PlantButton/button_standard_.png"
+dest_files=["res://.godot/imported/button_standard_.png-330f51d173d1fbd6ae49ca3e739bc8db.ctex"]
 
 [params]
 
