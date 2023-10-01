@@ -144,6 +144,9 @@ func get_mouse_tile_pos():
 	
 	
 func is_cursor_plant_colliding() -> bool:
+	if $BuildCursor.get_child_count() == 0:
+		return false;
+	
 	var plant_in_cursor = $BuildCursor.get_child(0);
 	if plant_in_cursor == null or not (plant_in_cursor is Plant):
 		print("no plant in cursor");

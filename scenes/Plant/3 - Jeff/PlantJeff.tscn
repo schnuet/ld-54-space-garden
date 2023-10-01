@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://djwsy2t7huxbv"]
+[gd_scene load_steps=8 format=3 uid="uid://djwsy2t7huxbv"]
 
 [ext_resource type="Script" path="res://scenes/Plant/3 - Jeff/PlantJeff.gd" id="1_j8ag1"]
-[ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_jy50m"]
 [ext_resource type="Texture2D" uid="uid://mjy23cnejmnv" path="res://scenes/Plant/3 - Jeff/space_garden_final_plant_3.png" id="2_tork1"]
 [ext_resource type="Texture2D" uid="uid://vkvah3j0h7f6" path="res://scenes/Plant/3 - Jeff/space_garden_mid_plant_3.png" id="3_p1ww6"]
 [ext_resource type="Texture2D" uid="uid://g3vv1oby0ps7" path="res://scenes/Plant/3 - Jeff/space_garden_sapling_plant_3.png" id="4_hc6b3"]
@@ -14,14 +13,6 @@ size = Vector2(288, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1bk3j"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_jy50m")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_tork1")
