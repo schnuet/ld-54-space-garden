@@ -74,8 +74,8 @@ func kill():
 	
 func harvest():
 	print("DELETE ", type);
-	if growth_state == GrowthState.dead:
-		queue_free();
+	#if growth_state == GrowthState.dead:
+	queue_free();
 
 func buff():
 	print("BUFF ", type);
@@ -164,5 +164,5 @@ func _on_mouse_exited():
 func _handle_click(mouse_position: Vector2):
 	print("plant click ", self);
 	
-	if growth_state == GrowthState.dead:
-		harvest();
+	#if growth_state == GrowthState.dead:
+	harvest();
