@@ -77,8 +77,8 @@ func _process(delta):
 	# position build cursor
 	var mouse_tile_pos = get_mouse_tile_pos();
 	var tile_pos = Vector2i(
-		clamp(mouse_tile_pos.x, 0, 17),
-		clamp(mouse_tile_pos.y, 0, 11)
+		clamp(mouse_tile_pos.x, 0, 7),
+		clamp(mouse_tile_pos.y, 0, 2)
 	);
 
 	if is_cursor_plant_colliding():
@@ -158,7 +158,6 @@ func is_cursor_plant_colliding() -> bool:
 	
 	var plant_in_cursor = $BuildCursor.get_child(0);
 	if plant_in_cursor == null or not (plant_in_cursor is Area2D):
-		print("no plant in cursor");
 		return false;
 	
 	# is place here???

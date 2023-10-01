@@ -969,4 +969,8 @@ plant_type = "Toni"
 sprite_frames = SubResource("SpriteFrames_kw3fg")
 animation = &"hover"
 
+[node name="CursorImage" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.482353)
+
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
