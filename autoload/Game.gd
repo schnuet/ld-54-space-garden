@@ -15,8 +15,9 @@ enum PlantType {
 var cursor_mode = "default";
 
 func set_cursor_mode(mode):
+	# disable
 	if mode == cursor_mode:
-		return;
+		mode = "default";
 
 	cursor_mode = mode;
 	emit_signal("cursor_mode_changed", mode);

@@ -1,21 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba7ah16vc00j5"]
+[gd_scene load_steps=6 format=3 uid="uid://ba7ah16vc00j5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/5 - Frank/PlantFrank.gd" id="1_7a53u"]
-[ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_1ifuc"]
 [ext_resource type="Texture2D" uid="uid://p6yrn0bmmo18" path="res://scenes/Plant/5 - Frank/space_garden_final_plant_5.png" id="2_ke2sf"]
 [ext_resource type="Texture2D" uid="uid://cauxcsi4vgduu" path="res://scenes/Plant/5 - Frank/space_garden_mid_plant_5.png" id="3_3sryp"]
 [ext_resource type="Texture2D" uid="uid://bopc8ypvo3njw" path="res://scenes/Plant/5 - Frank/space_garden_sapling_plant_5.png" id="4_phyki"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k0cq8"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_1ifuc")
-}],
-"loop": true,
-"name": &"dead",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ke2sf")
