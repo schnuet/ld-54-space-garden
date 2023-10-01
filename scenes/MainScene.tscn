@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://fbk1capf22s7"]
+[gd_scene load_steps=4 format=3 uid="uid://fbk1capf22s7"]
 
 [ext_resource type="PackedScene" uid="uid://d0t1lcxkscwua" path="res://scenes/PlantMap/PlantMap.tscn" id="1_7vaon"]
+[ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_ggjwf"]
 [ext_resource type="PackedScene" uid="uid://5cygv1orl3un" path="res://scenes/PlantButton/PlantButton.tscn" id="2_bm6uj"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_ggjwf")
+
+[node name="LevelIndex" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="PlantMap" parent="." instance=ExtResource("1_7vaon")]
 position = Vector2(64, 64)
@@ -11,25 +17,27 @@ position = Vector2(64, 64)
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(160, 296)
+position = Vector2(152, 328)
 plant_type = "BHi"
 
 [node name="PlantButtonStan" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(232, 296)
+position = Vector2(224, 328)
 plant_type = "Stan"
 
 [node name="PlantButtonJeff" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(296, 296)
+position = Vector2(288, 328)
 plant_type = "Jeff"
 
 [node name="PlantButtonAssi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(368, 296)
+position = Vector2(360, 328)
 plant_type = "Assi"
 
 [node name="PlantButtonFrank" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(440, 296)
+position = Vector2(432, 328)
 plant_type = "Frank"
 
 [node name="PlantButtonToni" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(512, 296)
+position = Vector2(504, 328)
 plant_type = "Toni"
+
+[connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
