@@ -82,9 +82,11 @@ func _process(delta):
 	);
 
 	if is_cursor_plant_colliding():
-		$BuildCursor.get_child(0).hide();
+		if $BuildCursor.get_child_count() > 0:
+			$BuildCursor.get_child(0).hide();
 	else:
-		$BuildCursor.get_child(0).show();
+		if $BuildCursor.get_child_count() > 0:
+			$BuildCursor.get_child(0).show();
 
 	$BuildCursor.position = tile_pos * tile_size;
 	
