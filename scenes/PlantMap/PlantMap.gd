@@ -78,6 +78,9 @@ var harvested_plants = {
 };
 
 func _ready():
+	reset_harvested_plants();
+	emit_signal("level_changed", 0);
+	
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
 
 func _process(delta):
@@ -90,8 +93,22 @@ func _process(delta):
 	$BuildCursor.position = tile_pos * tile_size;
 	
 	if is_level_done():
-		current_level_index += 1;
-		emit_signal("level_changed", current_level_index);
+		_on_level_done();
+
+func _on_level_done():
+	reset_harvested_plants();
+	current_level_index += 1;
+	emit_signal("level_changed", current_level_index);
+	
+func reset_harvested_plants():
+	harvested_plants = {
+		"BHi": 0,
+		"Stan": 0,
+		"Jeff": 0,
+		"Assi": 0,
+		"Frank": 0,
+		"Toni": 0
+	};
 	
 func get_new_plant(type) -> Plant:
 	if not (plants_by_name.has(type)):
@@ -164,12 +181,18 @@ func get_all_plants():
 	return $Plants.get_children() as Array[Plant];
 
 
-func get_current_plant_count():
+func get_grown_plant_count():
 	var plant_count = {};
 	var plants = get_all_plants();
 	for plant in plants:
 		if not plant_count.has(plant.type):
 			plant_count[plant.type] = 0;
+			
+		if not plant.planted:
+			continue;
+		
+		if plant.growth_state != plant.GrowthState.final:
+			continue;
 
 		plant_count[plant.type] += 1;
 	
@@ -186,7 +209,7 @@ func is_level_done():
 	if level == null:
 		return;
 	
-	var counts = get_current_plant_count();
+	var counts = get_grown_plant_count();
 	
 	var required_counts = level["required_plants"];
 	
