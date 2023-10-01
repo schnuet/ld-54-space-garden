@@ -24,6 +24,48 @@ extends TileMap
 
 var tile_size = 64;
 
+var levels = [
+	{
+		"required_plants": {
+			"BHi": 3
+		}
+	},
+	{
+		"required_plants": {
+			"BHi": 2,
+			"Stan": 1,
+			"Jeff": 1
+		}
+	},
+	{
+		"required_plants": {
+			"BHi": 1,
+			"Stan": 1,
+			"Jeff": 1,
+			"Assi": 1
+		}
+	},
+	{
+		"required_plants": {
+			"BHi": 1,
+			"Stan": 2,
+			"Jeff": 1,
+			"Assi": 1,
+			"Frank": 1
+		}
+	},
+	{
+		"required_plants": {
+			"BHi": 1,
+			"Stan": 1,
+			"Jeff": 1,
+			"Assi": 1,
+			"Frank": 1,
+			"Toni": 1
+		}
+	}
+];
+
 func _ready():
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
 
@@ -98,7 +140,7 @@ func is_cursor_plant_colliding() -> bool:
 	for collision in plant_collisions:
 		if collision.is_in_group("plant"):
 			return true;
-			
+
 	return false;
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):

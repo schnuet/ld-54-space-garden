@@ -11,25 +11,25 @@ position = Vector2(64, 64)
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(160, 296)
+position = Vector2(152, 328)
 plant_type = "BHi"
 
 [node name="PlantButtonStan" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(232, 296)
+position = Vector2(224, 328)
 plant_type = "Stan"
 
 [node name="PlantButtonJeff" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(296, 296)
+position = Vector2(288, 328)
 plant_type = "Jeff"
 
 [node name="PlantButtonAssi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(368, 296)
+position = Vector2(360, 328)
 plant_type = "Assi"
 
 [node name="PlantButtonFrank" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(440, 296)
+position = Vector2(432, 328)
 plant_type = "Frank"
 
 [node name="PlantButtonToni" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(512, 296)
+position = Vector2(504, 328)
 plant_type = "Toni"
