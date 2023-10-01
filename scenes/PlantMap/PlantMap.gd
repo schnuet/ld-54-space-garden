@@ -48,7 +48,6 @@ func create_plant(type, plant_position):
 		new_plant.global_position = plant_position;
 
 		plants_group.add_child(new_plant);
-		new_plant.planted = true;
 		new_plant._on_plant();
 
 #func _process(delta):

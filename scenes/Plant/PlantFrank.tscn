@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfaiu0jbdct85"]
+[gd_scene load_steps=3 format=3 uid="uid://cfaiu0jbdct85"]
 
 [ext_resource type="Script" path="res://scenes/Plant/PlantFrank.gd" id="1_qciyc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0cq8"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"final",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mid",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sapling",
+"speed": 5.0
+}]
 
 [node name="PlantFrank" type="Area2D"]
 collision_layer = 5
@@ -15,3 +33,7 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 polygon = PackedVector2Array(-48, -48, 16, -48, 16, -112, 176, -112, 176, -48, 240, -48, 240, 112, 176, 112, 176, 176, 16, 176, 16, 112, -48, 112)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k0cq8")
+animation = &"mid"

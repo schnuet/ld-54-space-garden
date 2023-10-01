@@ -1,8 +1,11 @@
 extends "res://scenes/Plant/Plant.gd"
 
+func _ready():
+	super._ready();
+	grow_speed = 10;
 
 func _on_plant():
-	await get_tree().physics_frame;
+	super._on_plant();
 	
 	var plants = get_all_neighbour_plants();
 	
@@ -16,11 +19,6 @@ func _on_plant():
 				plant.kill();
 			"Toni":
 				plant.buff();
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

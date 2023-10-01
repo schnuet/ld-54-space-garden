@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca7xwg506jlp5"]
+[gd_scene load_steps=5 format=3 uid="uid://ca7xwg506jlp5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/PlantAssi.gd" id="1_fpev7"]
 
@@ -7,6 +7,24 @@ size = Vector2(112, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1lec"]
 size = Vector2(224, 224)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qwwtj"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"final",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mid",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"sapling",
+"speed": 5.0
+}]
 
 [node name="PlantAssi" type="Area2D"]
 collision_layer = 5
@@ -24,3 +42,7 @@ collision_mask = 4
 position = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_v1lec")
 debug_color = Color(0.74902, 0.0823529, 0.282353, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qwwtj")
+animation = &"mid"
