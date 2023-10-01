@@ -2,6 +2,7 @@ class_name PlantMap
 extends TileMap
 
 # 4*6
+signal level_changed(level_index);
 
 @onready var plants_group:Node2D = $Plants;
 
@@ -65,6 +66,16 @@ var levels = [
 		}
 	}
 ];
+var current_level_index = 0;
+
+var harvested_plants = {
+	"BHi": 0,
+	"Stan": 0,
+	"Jeff": 0,
+	"Assi": 0,
+	"Frank": 0,
+	"Toni": 0
+};
 
 func _ready():
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
@@ -77,6 +88,10 @@ func _process(delta):
 		clamp(mouse_tile_pos.y, 0, 11)
 	);
 	$BuildCursor.position = tile_pos * tile_size;
+	
+	if is_level_done():
+		current_level_index += 1;
+		emit_signal("level_changed", current_level_index);
 	
 func get_new_plant(type) -> Plant:
 	if not (plants_by_name.has(type)):
@@ -129,6 +144,7 @@ func get_mouse_tile_pos():
 	
 	return Vector2i(local_mouse_pos / tile_size);
 	
+	
 func is_cursor_plant_colliding() -> bool:
 	var plant_in_cursor = $BuildCursor.get_child(0);
 	if plant_in_cursor == null or not (plant_in_cursor is Plant):
@@ -142,6 +158,49 @@ func is_cursor_plant_colliding() -> bool:
 			return true;
 
 	return false;
+
+
+func get_all_plants():
+	return $Plants.get_children() as Array[Plant];
+
+
+func get_current_plant_count():
+	var plant_count = {};
+	var plants = get_all_plants();
+	for plant in plants:
+		if not plant_count.has(plant.type):
+			plant_count[plant.type] = 0;
+
+		plant_count[plant.type] += 1;
+	
+	return plant_count;
+
+
+func get_current_level():
+	return levels[current_level_index];
+
+
+func is_level_done():
+	var level = get_current_level();
+	
+	if level == null:
+		return;
+	
+	var counts = get_current_plant_count();
+	
+	var required_counts = level["required_plants"];
+	
+	for type in required_counts:
+		if not required_counts.has(type):
+			continue;
+		var required_plant_count = required_counts[type];
+		if not counts.has(type):
+			return false;
+		if counts[type] < required_plant_count:
+			return false;
+	
+	return true;
+
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():

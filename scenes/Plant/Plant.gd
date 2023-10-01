@@ -101,17 +101,15 @@ func _on_state_change(new_state: GrowthState, old_state: GrowthState):
 	pass
 
 func change_to_state(new_state: GrowthState):
-	if new_state == growth_state:
-		return;
+	if new_state != growth_state:
+		print("change state of ", type, " to ", GrowthState.keys()[new_state]);
+		var old_state = growth_state;
+		growth_state = new_state;
 		
-	print("change state of ", type, " to ", GrowthState.keys()[new_state]);
-	var old_state = growth_state;
-	growth_state = new_state;
-	
-	if growth_state == GrowthState.final:
-		grow_timer.stop();
-	
-	_on_state_change(new_state, old_state);
+		if growth_state == GrowthState.final:
+			grow_timer.stop();
+		
+		_on_state_change(new_state, old_state);
 	
 	# update animation
 	sprite.animation = GrowthState.keys()[growth_state];
@@ -121,7 +119,6 @@ func _on_plant():
 	change_to_state(GrowthState.sapling);
 	planted = true;
 	await get_tree().physics_frame;
-
 
 
 func _on_grow_timer():
@@ -140,7 +137,6 @@ func _on_grow_timer():
 		change_to_state(GrowthState.mid);
 	else:
 		change_to_state(GrowthState.sapling);
-
 
 
 # Click handlers
