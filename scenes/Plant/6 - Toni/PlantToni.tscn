@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dav4il0vncmbj"]
 
-[ext_resource type="Script" path="res://scenes/Plant/PlantToni.gd" id="1_3aqds"]
+[ext_resource type="Script" path="res://scenes/Plant/6 - Toni/PlantToni.gd" id="1_jq57u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky0g8"]
 animations = [{
@@ -22,14 +22,17 @@ animations = [{
 
 [node name="PlantToni" type="Area2D"]
 collision_layer = 5
-script = ExtResource("1_3aqds")
+collision_mask = 32769
+script = ExtResource("1_jq57u")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(8, 8, 72, 8, 72, -56, 184, -56, 184, -8, 120, -8, 120, 56, 8, 56)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 32768
 collision_mask = 4
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 polygon = PackedVector2Array(-48, 112, 176, 112, 176, 48, 240, 48, 240, -112, 16, -112, 16, -48, -48, -48)

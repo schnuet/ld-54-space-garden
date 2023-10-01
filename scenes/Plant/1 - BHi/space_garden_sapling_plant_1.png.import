@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mpmjmhma8rp6"
-path="res://.godot/imported/space_garden_sapling_plant_1.png-55ef9a100a64bb8595077bdc754d182c.ctex"
+path="res://.godot/imported/space_garden_sapling_plant_1.png-8061d6acafa74e4c2fdd50348159f6dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Plant/space_garden_sapling_plant_1.png"
-dest_files=["res://.godot/imported/space_garden_sapling_plant_1.png-55ef9a100a64bb8595077bdc754d182c.ctex"]
+source_file="res://scenes/Plant/1 - BHi/space_garden_sapling_plant_1.png"
+dest_files=["res://.godot/imported/space_garden_sapling_plant_1.png-8061d6acafa74e4c2fdd50348159f6dd.ctex"]
 
 [params]
 

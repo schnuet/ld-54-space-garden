@@ -1,14 +1,17 @@
+class_name PlantMap
 extends TileMap
+
+# 4*6
 
 @onready var plants_group:Node2D = $Plants;
 
 @onready var Plant = preload("res://scenes/Plant/Plant.tscn");
-@onready var PlantBHi = preload("res://scenes/Plant/PlantBHi.tscn");
-@onready var PlantAssi = preload("res://scenes/Plant/PlantAssi.tscn");
-@onready var PlantFrank = preload("res://scenes/Plant/PlantFrank.tscn");
-@onready var PlantJeff = preload("res://scenes/Plant/PlantJeff.tscn");
-@onready var PlantStan = preload("res://scenes/Plant/PlantStan.tscn");
-@onready var PlantToni = preload("res://scenes/Plant/PlantToni.tscn");
+@onready var PlantBHi = preload("res://scenes/Plant/1 - BHi/PlantBHi.tscn");
+@onready var PlantStan = preload("res://scenes/Plant/2 - Stan/PlantStan.tscn");
+@onready var PlantJeff = preload("res://scenes/Plant/3 - Jeff/PlantJeff.tscn");
+@onready var PlantAssi = preload("res://scenes/Plant/4 - Assi/PlantAssi.tscn");
+@onready var PlantFrank = preload("res://scenes/Plant/5 - Frank/PlantFrank.tscn");
+@onready var PlantToni = preload("res://scenes/Plant/6 - Toni/PlantToni.tscn");
 
 @onready var plants_by_name = {
 	"BHi": PlantBHi,
@@ -42,10 +45,10 @@ func get_new_plant(type) -> Plant:
 	plant.type = type;
 	return plant;
 
-func create_plant(type, plant_position):
+func create_plant(type, global_plant_position):
 	var new_plant = get_new_plant(type);
 	if new_plant != null:
-		new_plant.global_position = plant_position;
+		new_plant.global_position = global_plant_position;
 
 		plants_group.add_child(new_plant);
 		new_plant._on_plant();
@@ -84,7 +87,7 @@ func get_mouse_tile_pos():
 	
 func is_cursor_plant_colliding() -> bool:
 	var plant_in_cursor = $BuildCursor.get_child(0);
-	if plant_in_cursor == null:
+	if plant_in_cursor == null or not (plant_in_cursor is Plant):
 		print("no plant in cursor");
 		return false;
 	

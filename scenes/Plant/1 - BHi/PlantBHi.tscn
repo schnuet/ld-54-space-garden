@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://315nidr5ptjq"]
+[gd_scene load_steps=9 format=3 uid="uid://315nidr5ptjq"]
 
-[ext_resource type="Script" path="res://scenes/Plant/PlantBHi.gd" id="1_yh5wo"]
-[ext_resource type="Texture2D" uid="uid://pfxhrjjvqgcn" path="res://scenes/Plant/space_garden_final_plant_1.png" id="2_1lvep"]
-[ext_resource type="Texture2D" uid="uid://b3l8ekoc8oyml" path="res://scenes/Plant/space_garden_mid_plant_1.png" id="3_jllxo"]
-[ext_resource type="Texture2D" uid="uid://mpmjmhma8rp6" path="res://scenes/Plant/space_garden_sapling_plant_1.png" id="4_v4plu"]
+[ext_resource type="Script" path="res://scenes/Plant/1 - BHi/PlantBHi.gd" id="1_e1m12"]
+[ext_resource type="Texture2D" uid="uid://pfxhrjjvqgcn" path="res://scenes/Plant/1 - BHi/space_garden_final_plant_1.png" id="2_epvkn"]
+[ext_resource type="Texture2D" uid="uid://ct5uqsmgdul3n" path="res://scenes/Plant/1 - BHi/space_garden_infected_plant_1.png" id="3_2avsm"]
+[ext_resource type="Texture2D" uid="uid://b3l8ekoc8oyml" path="res://scenes/Plant/1 - BHi/space_garden_mid_plant_1.png" id="4_gcgnx"]
+[ext_resource type="Texture2D" uid="uid://mpmjmhma8rp6" path="res://scenes/Plant/1 - BHi/space_garden_sapling_plant_1.png" id="5_o08gd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2h7qy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1lvep")
+"texture": ExtResource("2_epvkn")
 }],
 "loop": true,
 "name": &"final",
@@ -17,7 +18,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jllxo")
+"texture": ExtResource("3_2avsm")
+}],
+"loop": true,
+"name": &"infected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gcgnx")
 }],
 "loop": true,
 "name": &"mid",
@@ -25,7 +34,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_v4plu")
+"texture": ExtResource("5_o08gd")
 }],
 "loop": true,
 "name": &"sapling",
@@ -40,12 +49,13 @@ size = Vector2(160, 160)
 
 [node name="PlantBHi" type="Area2D"]
 collision_layer = 5
-script = ExtResource("1_yh5wo")
+collision_mask = 32769
+script = ExtResource("1_e1m12")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, 16)
 sprite_frames = SubResource("SpriteFrames_2h7qy")
-animation = &"sapling"
+animation = &"final"
 
 [node name="BuildCollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(32, 32)
@@ -54,7 +64,7 @@ debug_color = Color(1, 0.933333, 0, 0.419608)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
 visible = false
-collision_layer = 0
+collision_layer = 32768
 collision_mask = 4
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
