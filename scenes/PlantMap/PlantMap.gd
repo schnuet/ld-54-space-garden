@@ -80,6 +80,12 @@ func _process(delta):
 		clamp(mouse_tile_pos.x, 0, 17),
 		clamp(mouse_tile_pos.y, 0, 11)
 	);
+
+	if is_cursor_plant_colliding():
+		$BuildCursor.get_child(0).hide();
+	else:
+		$BuildCursor.get_child(0).show();
+
 	$BuildCursor.position = tile_pos * tile_size;
 	
 	if is_level_done():
@@ -89,6 +95,7 @@ func _process(delta):
 func _on_level_done():
 	current_level_index += 1;
 	emit_signal("level_changed", current_level_index);
+	get_node("Blocker" + str(current_level_index)).queue_free();
 	
 	
 func get_new_plant(type) -> Plant:
@@ -148,14 +155,14 @@ func is_cursor_plant_colliding() -> bool:
 		return false;
 	
 	var plant_in_cursor = $BuildCursor.get_child(0);
-	if plant_in_cursor == null or not (plant_in_cursor is Plant):
+	if plant_in_cursor == null or not (plant_in_cursor is Area2D):
 		print("no plant in cursor");
 		return false;
 	
 	# is place here???
 	var plant_collisions = plant_in_cursor.get_overlapping_areas();
 	for collision in plant_collisions:
-		if collision.is_in_group("plant"):
+		if collision.is_in_group("plant") or collision.is_in_group("blocker"):
 			return true;
 
 	return false;
@@ -211,6 +218,10 @@ func is_level_done():
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
+		
+		var blocker = get_tree().get_nodes_in_group("blocker");
+		
+		
 		var plant = get_plant_at_mouse();
 		if plant != null:
 			plant._handle_click(get_global_mouse_position());

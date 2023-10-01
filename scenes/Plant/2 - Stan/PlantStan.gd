@@ -30,6 +30,9 @@ func affect_plant(plant: Plant):
 	print(type, " affect ", plant.type);
 	if is_neutralized():
 		return;
+		
+	if is_neutralized():
+		return;
 	
 	match plant.type:
 		"BHi":

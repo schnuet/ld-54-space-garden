@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0t1lcxkscwua"]
+[gd_scene load_steps=16 format=3 uid="uid://d0t1lcxkscwua"]
 
 [ext_resource type="Texture2D" uid="uid://c7fxxyieryuut" path="res://scenes/PlantMap/space_garden_floor_tile_1.png" id="1_cs77c"]
 [ext_resource type="Texture2D" uid="uid://ckpt6wt1x8byq" path="res://scenes/PlantMap/bg_placeholder.png" id="1_d1pui"]
 [ext_resource type="Script" path="res://scenes/PlantMap/PlantMap.gd" id="2_wec6l"]
+[ext_resource type="Script" path="res://scenes/PlantMap/Blocker1.gd" id="4_cnkhr"]
+[ext_resource type="Script" path="res://scenes/PlantMap/Blocker2.gd" id="5_15xdm"]
+[ext_resource type="Script" path="res://scenes/PlantMap/Blocker3.gd" id="6_qbg0e"]
+[ext_resource type="Script" path="res://scenes/PlantMap/Blocker4.gd" id="7_1y28p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hem13"]
 texture = ExtResource("1_cs77c")
@@ -171,6 +175,7 @@ offset_bottom = 59.0
 
 [node name="Blocker1" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(64, 0)
+script = ExtResource("4_cnkhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker1"]
 position = Vector2(64, 96)
@@ -178,6 +183,7 @@ shape = SubResource("RectangleShape2D_3qq1v")
 
 [node name="Blocker2" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(192, 0)
+script = ExtResource("5_15xdm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker2"]
 position = Vector2(64, 64)
@@ -185,6 +191,7 @@ shape = SubResource("RectangleShape2D_y0s2m")
 
 [node name="Blocker3" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(320, 0)
+script = ExtResource("6_qbg0e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker3"]
 position = Vector2(96, 64)
@@ -192,6 +199,7 @@ shape = SubResource("RectangleShape2D_ydifu")
 
 [node name="Blocker4" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(192, 128)
+script = ExtResource("7_1y28p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker4"]
 position = Vector2(160, 32)
