@@ -29,6 +29,18 @@ func affect_plant(plant: Plant):
 	
 	if is_neutralized():
 		return;
+		
+	if plant.type == self.type:
+		plant.buff();
+		
+func reaffect_plant(plant: Plant):
+	print(type, " REaffect ", plant.type);
+	
+	if is_neutralized():
+		return;
+	
+	if plant.type == self.type:
+		plant.nerf();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

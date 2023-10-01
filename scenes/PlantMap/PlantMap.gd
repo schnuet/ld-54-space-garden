@@ -74,19 +74,31 @@ func _ready():
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
 
 func _process(delta):
-	# position build cursor
+		# position build cursor
 	var mouse_tile_pos = get_mouse_tile_pos();
 	var tile_pos = Vector2i(
 		clamp(mouse_tile_pos.x, 0, 7),
 		clamp(mouse_tile_pos.y, 0, 2)
 	);
-
-	if is_cursor_plant_colliding():
+	
+	var x = mouse_tile_pos.x;
+	var y = mouse_tile_pos.y;
+	
+	if x > 7 or x < 0:
+		#print("x: ", x, " y: ", y)
+		if $BuildCursor.get_child_count() > 0:
+			$BuildCursor.get_child(0).hide();
+	elif y > 2 or y < 0:
+		#print("x: ", x, " y: ", y)
+		if $BuildCursor.get_child_count() > 0:
+			$BuildCursor.get_child(0).hide();
+	elif is_cursor_plant_colliding():
+		#print("colliding ")
 		if $BuildCursor.get_child_count() > 0:
 			$BuildCursor.get_child(0).hide();
 	else:
-		if $BuildCursor.get_child_count() > 0:
-			$BuildCursor.get_child(0).show();
+		#print("x: ", x, " y: ", y)
+		$BuildCursor.get_child(0).show();
 
 	$BuildCursor.position = tile_pos * tile_size;
 	
@@ -149,7 +161,7 @@ func get_mouse_tile_pos():
 #	var map_height = 3 * tile_size;
 #	var scale_strength = local_mouse_pos.y;
 	
-	return Vector2i(local_mouse_pos / tile_size);
+	return Vector2i(floor(local_mouse_pos / tile_size));
 	
 	
 func is_cursor_plant_colliding() -> bool:

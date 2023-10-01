@@ -72,10 +72,11 @@ func kill():
 	if growth_state != GrowthState.dead:
 		change_to_state(GrowthState.dead);
 	
+	
 func harvest():
 	print("DELETE ", type);
-	if growth_state == GrowthState.dead:
-		queue_free();
+	#if growth_state == GrowthState.dead:
+	queue_free();
 
 func buff():
 	print("BUFF ", type);
@@ -97,10 +98,8 @@ func deneutralize():
 	if growth_state != GrowthState.dead:
 		neutralize_count -= 1;
 
-func is_neutralized():
-	if growth_state != GrowthState.dead:
-		return neutralize_count > 0;
-
+func is_neutralized() -> bool:
+	return neutralize_count > 0;
 
 func affect_plant(plant: Plant):
 	pass
@@ -164,5 +163,5 @@ func _on_mouse_exited():
 func _handle_click(mouse_position: Vector2):
 	print("plant click ", self);
 	
-	if growth_state == GrowthState.dead:
-		harvest();
+	#if growth_state == GrowthState.dead:
+	harvest();
