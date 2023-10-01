@@ -1,6 +1,5 @@
 extends "res://scenes/Plant/Plant.gd"
 
-
 func _ready():
 	super._ready();
 	grow_speed = 10;
@@ -33,7 +32,7 @@ func affect_plant(plant: Plant):
 	
 	if is_neutralized():
 		return;
-
+		
 	match plant.type:
 		"BHi":
 			plant.kill();
@@ -42,8 +41,7 @@ func affect_plant(plant: Plant):
 		"Jeff":
 			plant.kill();
 		"Toni":
-			plant.buff();
-
+			plant.kill();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

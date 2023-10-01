@@ -28,6 +28,9 @@ func _on_plant():
 
 func affect_plant(plant: Plant):
 	# BHi can infect others if infected
+	if is_neutralized():
+		return;
+		
 	if growth_state == GrowthState.infected:
 		if plant.type == "BHi":
 			plant.change_to_state(GrowthState.infected);

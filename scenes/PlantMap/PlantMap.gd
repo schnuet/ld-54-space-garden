@@ -209,6 +209,10 @@ func is_level_done():
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
+		
+		var blocker = get_tree().get_nodes_in_group("blocker");
+		
+		
 		var plant = get_plant_at_mouse();
 		if plant != null:
 			plant._handle_click(get_global_mouse_position());

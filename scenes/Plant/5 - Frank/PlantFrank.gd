@@ -27,6 +27,9 @@ func _on_plant():
 func affect_plant(plant: Plant):
 	print(type, " affect ", plant.type);
 	
+	if plant.type == "Assi":
+		plant.neutralize();
+	
 	if is_neutralized():
 		return;
 

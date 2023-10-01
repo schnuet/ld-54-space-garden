@@ -98,7 +98,6 @@ func deneutralize():
 		neutralize_count -= 1;
 
 func is_neutralized():
-	print("NEUTRALIZE ", type);
 	if growth_state != GrowthState.dead:
 		return neutralize_count > 0;
 
