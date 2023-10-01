@@ -1,5 +1,5 @@
 class_name PlantMap
-extends TileMap
+extends Node2D
 
 # 4*6
 signal level_changed(level_index);
@@ -230,7 +230,7 @@ func _on_mouse_collider_input_event(viewport, event, shape_idx):
 			
 		
 		var tile_pos = get_mouse_tile_pos();
-		var tile_id = get_cell_source_id(0, tile_pos);
+		var tile_id = $TileMap.get_cell_source_id(0, tile_pos);
 		print("map click at", tile_pos);
 		
 		if (tile_id != -1):

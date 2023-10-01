@@ -11,12 +11,12 @@ var tween = null;
 func do_dialog(lines: Array):
 	panel.show();
 	speech_box.show();
+	
 	for line in lines:
 		if line.get("type") == "line":
 			await update_speech(line);
 		elif line.get("type") == "action":
-			await line.get("action").call()
-			
+			await line.get("action").call();
 	
 	panel.hide();
 	speech_box.hide();

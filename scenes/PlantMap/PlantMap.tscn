@@ -150,12 +150,15 @@ size = Vector2(192, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygisn"]
 size = Vector2(320, 64)
 
-[node name="PlantMap" type="TileMap" groups=["plant_map"]]
+[node name="PlantMap" type="Node2D"]
+script = ExtResource("2_wec6l")
+
+[node name="TileMap" type="TileMap" parent="." groups=["plant_map"]]
+modulate = Color(1, 1, 1, 0)
 tile_set = SubResource("TileSet_gekju")
 format = 2
 layer_0/name = "Main"
 layer_0/tile_data = PackedInt32Array(65540, 0, 0, 131077, 0, 0, 65541, 0, 0, 131076, 0, 0, 65538, 0, 0, 65539, 0, 0, 65537, 0, 0, 0, 0, 0, 2, 0, 0, 4, 0, 0, 5, 0, 0, 3, 0, 0, 1, 0, 0, 131073, 0, 0, 65536, 0, 0, 131075, 0, 0, 131074, 0, 0, 131072, 0, 0, 6, 0, 0, 7, 0, 0, 65542, 0, 0, 65543, 0, 0, 131078, 0, 0, 131079, 0, 0)
-script = ExtResource("2_wec6l")
 
 [node name="MouseCollider" type="Area2D" parent="."]
 
@@ -165,13 +168,6 @@ position = Vector2(650, 369.5)
 shape = SubResource("RectangleShape2D_sn8h3")
 
 [node name="Plants" type="Node2D" parent="."]
-
-[node name="BuildCursor" type="Node2D" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="BuildCursor"]
-offset_right = 60.0
-offset_bottom = 59.0
 
 [node name="Blocker1" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(64, 0)
@@ -204,5 +200,12 @@ script = ExtResource("7_1y28p")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker4"]
 position = Vector2(160, 32)
 shape = SubResource("RectangleShape2D_ygisn")
+
+[node name="BuildCursor" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="BuildCursor"]
+offset_right = 60.0
+offset_bottom = 59.0
 
 [connection signal="input_event" from="MouseCollider" to="." method="_on_mouse_collider_input_event"]

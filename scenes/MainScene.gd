@@ -10,8 +10,9 @@ func _ready():
 	$Menu/PlantButtonToni.disable();
 	
 func _process(delta):
-	if $CursorImage.visible == true:
-		$CursorImage.global_position = get_global_mouse_position();
+#	if $CursorImage.visible == true:
+#		$CursorImage.global_position = get_global_mouse_position();
+	pass
 
 func _on_plant_map_level_changed(level_index):
 	$LevelIndex.text = "Level: " + str(level_index + 1);
@@ -27,12 +28,35 @@ func _on_plant_map_level_changed(level_index):
 		$Menu/PlantButtonToni.enable();
 
 func _on_cursor_mode_changed(mode):
-	var node_path = "Menu/PlantButton" + mode + "/AnimatedSprite2D";
-	if has_node(node_path):
-		var sprite = get_node(node_path);
-		$CursorImage.sprite_frames = sprite.sprite_frames;
-		$CursorImage.show();
-		$CursorImage.play();
-	
-	else:
-		$CursorImage.hide();
+#	var node_path = "Menu/PlantButton" + mode + "/AnimatedSprite2D";
+#	if has_node(node_path):
+#		var sprite = get_node(node_path);
+#		$CursorImage.sprite_frames = sprite.sprite_frames;
+#		$CursorImage.show();
+#		$CursorImage.play();
+#
+#	else:
+#		$CursorImage.hide();
+	pass
+
+func show_level_intro(level_index):
+	match level_index:
+		0:
+			DialogOverlay.do_dialog([
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Professor Jeff!",
+						"We're counting on you!",
+						"We've got a fresh shipment of plants from CR708."
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Great! I'm on my way. What do they do?"
+					]
+				}
+			]);

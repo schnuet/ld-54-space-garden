@@ -1,4 +1,4 @@
-[gd_scene load_steps=233 format=3 uid="uid://fbk1capf22s7"]
+[gd_scene load_steps=235 format=3 uid="uid://fbk1capf22s7"]
 
 [ext_resource type="PackedScene" uid="uid://d0t1lcxkscwua" path="res://scenes/PlantMap/PlantMap.tscn" id="1_7vaon"]
 [ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_ggjwf"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bj0y8kr8fpy1y" path="res://scenes/PlantMap/window/space_window_background_1.png" id="4_fmrr5"]
 [ext_resource type="Texture2D" uid="uid://bxkad7fexhg4d" path="res://scenes/PlantMap/window/space_window_background_2.png" id="5_0kcx8"]
 [ext_resource type="Texture2D" uid="uid://cb6m8nt6tbny1" path="res://scenes/PlantMap/window/space_window_background_3.png" id="6_j386a"]
+[ext_resource type="Texture2D" uid="uid://5jjhndivuet6" path="res://scenes/MainScene/space_garden_spielelayout.png" id="7_gu58d"]
 [ext_resource type="Texture2D" uid="uid://r766y3rtegbm" path="res://scenes/PlantButton/button_standard_.png" id="9_r47t7"]
 [ext_resource type="Texture2D" uid="uid://cwr26ejqi4uj1" path="res://scenes/PlantButton/button_hover_.png" id="10_oghla"]
+[ext_resource type="Texture2D" uid="uid://djgxijeynqaqb" path="res://scenes/MainScene/space_garden_table-light-effectt.png" id="12_tu3v7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kvqp"]
 atlas = ExtResource("9_r47t7")
@@ -1632,14 +1634,19 @@ centered = false
 script = ExtResource("3_5xpoo")
 speed = 7.0
 
+[node name="SpaceGardenSpielelayout" type="Sprite2D" parent="."]
+texture = ExtResource("7_gu58d")
+centered = false
+
 [node name="LevelIndex" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="PlantMap" parent="." instance=ExtResource("1_7vaon")]
-position = Vector2(64, 112)
+position = Vector2(64, 96)
 
 [node name="Menu" type="Node2D" parent="."]
+position = Vector2(0, 13)
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
 position = Vector2(152, 328)
@@ -1687,5 +1694,9 @@ sprite_frames = SubResource("SpriteFrames_kw3fg")
 [node name="CursorImage" type="AnimatedSprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.482353)
+
+[node name="SpaceGardenTable-light-effectt" type="Sprite2D" parent="."]
+texture = ExtResource("12_tu3v7")
+centered = false
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
