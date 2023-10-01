@@ -80,12 +80,12 @@ func _process(delta):
 		clamp(mouse_tile_pos.x, 0, 17),
 		clamp(mouse_tile_pos.y, 0, 11)
 	);
-	
+
 	if is_cursor_plant_colliding():
 		$BuildCursor.get_child(0).hide();
 	else:
 		$BuildCursor.get_child(0).show();
-		
+
 	$BuildCursor.position = tile_pos * tile_size;
 	
 	if is_level_done():
