@@ -68,17 +68,7 @@ var levels = [
 ];
 var current_level_index = 0;
 
-var harvested_plants = {
-	"BHi": 0,
-	"Stan": 0,
-	"Jeff": 0,
-	"Assi": 0,
-	"Frank": 0,
-	"Toni": 0
-};
-
 func _ready():
-	reset_harvested_plants();
 	emit_signal("level_changed", 0);
 	
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
@@ -95,20 +85,11 @@ func _process(delta):
 	if is_level_done():
 		_on_level_done();
 
+
 func _on_level_done():
-	reset_harvested_plants();
 	current_level_index += 1;
 	emit_signal("level_changed", current_level_index);
 	
-func reset_harvested_plants():
-	harvested_plants = {
-		"BHi": 0,
-		"Stan": 0,
-		"Jeff": 0,
-		"Assi": 0,
-		"Frank": 0,
-		"Toni": 0
-	};
 	
 func get_new_plant(type) -> Plant:
 	if not (plants_by_name.has(type)):
