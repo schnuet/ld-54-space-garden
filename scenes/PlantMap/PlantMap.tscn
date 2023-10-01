@@ -169,28 +169,28 @@ visible = false
 offset_right = 60.0
 offset_bottom = 59.0
 
-[node name="Blocker1" type="Area2D" parent="."]
+[node name="Blocker1" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(64, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker1"]
 position = Vector2(64, 96)
 shape = SubResource("RectangleShape2D_3qq1v")
 
-[node name="Blocker2" type="Area2D" parent="."]
+[node name="Blocker2" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(192, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker2"]
 position = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_y0s2m")
 
-[node name="Blocker3" type="Area2D" parent="."]
+[node name="Blocker3" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(320, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker3"]
 position = Vector2(96, 64)
 shape = SubResource("RectangleShape2D_ydifu")
 
-[node name="Blocker4" type="Area2D" parent="."]
+[node name="Blocker4" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(192, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker4"]
