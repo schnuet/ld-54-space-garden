@@ -53,6 +53,7 @@ sprite_frames = SubResource("SpriteFrames_k0cq8")
 animation = &"sapling"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(8, 8, 72, 8, 72, -56, 120, -56, 120, 8, 184, 8, 184, 56, 120, 56, 120, 120, 72, 120, 72, 56, 8, 56)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
@@ -66,6 +67,7 @@ visible = false
 polygon = PackedVector2Array(-48, -48, 16, -48, 16, -112, 176, -112, 176, -48, 240, -48, 240, 112, 176, 112, 176, 176, 16, 176, 16, 112, -48, 112)
 
 [node name="Place" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(96, 32)
 scale = Vector2(4, 4)
 texture = ExtResource("6_gpnex")

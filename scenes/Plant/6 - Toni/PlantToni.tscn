@@ -31,6 +31,7 @@ sprite_frames = SubResource("SpriteFrames_ky0g8")
 animation = &"mid"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(8, 8, 72, 8, 72, -56, 184, -56, 184, -8, 120, -8, 120, 56, 8, 56)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
@@ -44,6 +45,7 @@ visible = false
 polygon = PackedVector2Array(-48, 112, 176, 112, 176, 48, 240, 48, 240, -112, 16, -112, 16, -48, -48, -48)
 
 [node name="Place" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(96, 0)
 scale = Vector2(4, 4)
 texture = ExtResource("2_brdeo")

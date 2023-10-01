@@ -43,10 +43,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3ga"]
-size = Vector2(112, 112)
+size = Vector2(112, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1lec"]
-size = Vector2(224, 224)
+size = Vector2(224, 160)
 
 [node name="PlantAssi" type="Area2D"]
 collision_layer = 5
@@ -54,12 +54,13 @@ collision_mask = 32769
 script = ExtResource("1_ei08w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(64, 56)
+position = Vector2(64, 16)
 sprite_frames = SubResource("SpriteFrames_qwwtj")
 animation = &"sapling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(64, 64)
+visible = false
+position = Vector2(64, 32)
 shape = SubResource("RectangleShape2D_ci3ga")
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
@@ -70,11 +71,12 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
 visible = false
-position = Vector2(64, 64)
+position = Vector2(64, 32)
 shape = SubResource("RectangleShape2D_v1lec")
 debug_color = Color(0.74902, 0.0823529, 0.282353, 0.419608)
 
 [node name="Place" type="Sprite2D" parent="."]
-position = Vector2(64, 64)
-scale = Vector2(4, 4)
+visible = false
+position = Vector2(64, 32)
+scale = Vector2(4, 2)
 texture = ExtResource("6_x0gxq")

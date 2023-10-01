@@ -37,6 +37,7 @@ sprite_frames = SubResource("SpriteFrames_ssckm")
 animation = &"normal"
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 233.0
 offset_right = 517.0

@@ -47,11 +47,12 @@ collision_layer = 5
 script = ExtResource("1_b0cf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(32, 16)
+position = Vector2(64, 48)
 sprite_frames = SubResource("SpriteFrames_nb7nw")
 animation = &"sapling"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(56, 8, 56, 72, 120, 72, 120, 120, 8, 120, 8, 8)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
@@ -64,6 +65,7 @@ visible = false
 polygon = PackedVector2Array(-48, -48, 112, -48, 112, 16, 176, 16, 176, 184, -48, 184)
 
 [node name="Place" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(64, 64)
 scale = Vector2(4, 4)
 texture = ExtResource("6_3102t")
