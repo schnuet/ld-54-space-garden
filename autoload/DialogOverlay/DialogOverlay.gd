@@ -7,10 +7,14 @@ var tween = null;
 @onready var speech_box = $Speech;
 @onready var panel = $Panel;
 
-
-func do_dialog(lines: Array):
+func do_dialog(lines: Array, scene_to_pause: Node = null):
+	move_to_front();
+	if scene_to_pause:
+		scene_to_pause.process_mode = Node.PROCESS_MODE_DISABLED;
+	
 	panel.show();
 	speech_box.show();
+	print("visible", speech_box);
 	
 	for line in lines:
 		if line.get("type") == "line":
@@ -20,6 +24,9 @@ func do_dialog(lines: Array):
 	
 	panel.hide();
 	speech_box.hide();
+	
+	if scene_to_pause:
+		scene_to_pause.process_mode = Node.PROCESS_MODE_INHERIT;
 
 func update_speech(line):
 	var texts = line.get("lines");
@@ -35,8 +42,10 @@ func update_speech(line):
 	
 	for text in texts:
 		print("next line!");
-		var new_text_length = len(text);
 		var old_text_length = len(speech_box.text);
+		if old_text_length > 0:
+			text = " " + text;
+		var new_text_length = len(text);
 		var text_length = old_text_length + new_text_length;
 		speech_box.text += text;
 		tween = await get_tree().create_tween();
@@ -44,7 +53,7 @@ func update_speech(line):
 		await tween.finished;
 		speech_box.visible_characters = text_length;
 		timer = get_tree().create_timer(0.3)
-		await timer.timeout
+		await timer.timeout;
 	
 	timer = get_tree().create_timer(len(speech_box.text) * 0.2);
 	await timer.timeout

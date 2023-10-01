@@ -69,9 +69,14 @@ var levels = [
 var current_level_index = 0;
 
 func _ready():
-	emit_signal("level_changed", 0);
+	#start the game after a small delay
+	var timer = get_tree().create_timer(0.1).connect("timeout", start);
 	
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
+
+func start():
+	print("start");
+	emit_signal("level_changed", 0);
 
 func _process(delta):
 		# position build cursor

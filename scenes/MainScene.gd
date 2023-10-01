@@ -17,6 +17,9 @@ func _process(delta):
 func _on_plant_map_level_changed(level_index):
 	$LevelIndex.text = "Level: " + str(level_index + 1);
 	
+	await show_level_intro(level_index);
+	
+	# enable plants
 	if level_index == 1:
 		$Menu/PlantButtonStan.enable();
 		$Menu/PlantButtonJeff.enable();
@@ -42,7 +45,7 @@ func _on_cursor_mode_changed(mode):
 func show_level_intro(level_index):
 	match level_index:
 		0:
-			DialogOverlay.do_dialog([
+			await DialogOverlay.do_dialog([
 				{
 					"actor": "chef",
 					"type": "line",
@@ -58,5 +61,71 @@ func show_level_intro(level_index):
 					"lines": [
 						"Great! I'm on my way. What do they do?"
 					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Thats the thing.",
+						"We don't know.",
+						"We don't even get to plant them all at once!",
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"They keep canibalizing each other!",
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Strange.",
+						"Did you try pulling them out and putting them in again?"
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Well, that's YOUR job now.",
+						"Plant them all!"
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Okaydokay.",
+						"Let's better start slow..."
+					]
+				},
+			],
+			self);
+		1:
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Seems like this plant grows nicely if it's alone."
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"We knew that already.",
+						"The problems start with more plants!"
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Let's tackle that, then."
+					]
 				}
-			]);
+			], self);
