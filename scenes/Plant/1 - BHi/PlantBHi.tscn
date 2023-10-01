@@ -49,7 +49,6 @@ size = Vector2(160, 160)
 
 [node name="PlantBHi" type="Area2D"]
 collision_layer = 5
-collision_mask = 32769
 script = ExtResource("1_e1m12")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -58,18 +57,19 @@ sprite_frames = SubResource("SpriteFrames_2h7qy")
 animation = &"final"
 
 [node name="BuildCollisionBox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_ntare")
 debug_color = Color(1, 0.933333, 0, 0.419608)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 32768
 collision_mask = 4
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
+visible = false
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_cjvlp")
 debug_color = Color(0.619608, 0.172549, 0.286275, 0.419608)

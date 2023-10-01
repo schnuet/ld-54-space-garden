@@ -22,6 +22,8 @@ extends TileMap
 	"Toni": PlantToni,
 };
 
+var tile_size = 64;
+
 func _ready():
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
 
@@ -32,7 +34,7 @@ func _process(delta):
 		clamp(mouse_tile_pos.x, 0, 17),
 		clamp(mouse_tile_pos.y, 0, 11)
 	);
-	$BuildCursor.position = tile_pos * 64;
+	$BuildCursor.position = tile_pos * tile_size;
 	
 func get_new_plant(type) -> Plant:
 	if not (plants_by_name.has(type)):
@@ -53,13 +55,6 @@ func create_plant(type, global_plant_position):
 		plants_group.add_child(new_plant);
 		new_plant._on_plant();
 
-#func _process(delta):
-#	if Input.is_action_just_pressed("click"):
-#		var tile_pos = Vector2i(get_local_mouse_position() / 64);
-#		var tile_id = get_cell_source_id(0, tile_pos);
-#
-#		if (tile_id != -1):
-#			create_plant(Game.PlantType.A, tile_pos * 64);
 
 func get_plant_at_mouse() -> Plant:
 	var plants = plants_group.get_children() as Array[Plant];
@@ -83,7 +78,14 @@ func _on_cursor_mode_change(mode):
 		$BuildCursor.hide();
 
 func get_mouse_tile_pos():
-	return Vector2i(get_local_mouse_position() / 64);
+	var local_mouse_pos = get_local_mouse_position();
+	# 8 * 3
+	
+#	var map_width = 8 * tile_size;
+#	var map_height = 3 * tile_size;
+#	var scale_strength = local_mouse_pos.y;
+	
+	return Vector2i(local_mouse_pos / tile_size);
 	
 func is_cursor_plant_colliding() -> bool:
 	var plant_in_cursor = $BuildCursor.get_child(0);
@@ -105,12 +107,14 @@ func _on_mouse_collider_input_event(viewport, event, shape_idx):
 		if plant != null:
 			plant._handle_click(get_global_mouse_position());
 			return;
+			
 		
 		var tile_pos = get_mouse_tile_pos();
 		var tile_id = get_cell_source_id(0, tile_pos);
+		print("map click at", tile_pos);
 		
 		if (tile_id != -1):
 			if is_cursor_plant_colliding():
 				return;
 			
-			create_plant(Game.cursor_mode, tile_pos * 64);
+			create_plant(Game.cursor_mode, tile_pos * tile_size);

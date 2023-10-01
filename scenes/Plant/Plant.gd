@@ -152,4 +152,4 @@ func _on_mouse_exited():
 	mouse_inside = false;
 
 func _handle_click(mouse_position: Vector2):
-	print("click handled on ", self);
+	print("plant click ", self);

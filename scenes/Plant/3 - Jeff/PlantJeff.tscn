@@ -48,13 +48,13 @@ position = Vector2(96, 32)
 shape = SubResource("RectangleShape2D_lk6p2")
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 32768
 collision_mask = 4
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
+visible = false
 position = Vector2(96, 32)
 shape = SubResource("RectangleShape2D_rskwj")
 

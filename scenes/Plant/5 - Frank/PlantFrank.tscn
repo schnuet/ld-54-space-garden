@@ -47,6 +47,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
+visible = false
 polygon = PackedVector2Array(-48, -48, 16, -48, 16, -112, 176, -112, 176, -48, 240, -48, 240, 112, 176, 112, 176, 176, 16, 176, 16, 112, -48, 112)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
