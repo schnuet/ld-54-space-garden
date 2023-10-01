@@ -89,6 +89,7 @@ func _process(delta):
 func _on_level_done():
 	current_level_index += 1;
 	emit_signal("level_changed", current_level_index);
+	get_node("Blocker" + str(current_level_index)).queue_free();
 	
 	
 func get_new_plant(type) -> Plant:

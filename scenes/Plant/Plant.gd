@@ -74,7 +74,7 @@ func kill():
 	
 func harvest():
 	print("DELETE ", type);
-	if growth_state != GrowthState.dead:
+	if growth_state == GrowthState.dead:
 		queue_free();
 
 func buff():
