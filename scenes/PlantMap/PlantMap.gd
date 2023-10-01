@@ -95,10 +95,15 @@ func _process(delta):
 	elif is_cursor_plant_colliding():
 		#print("colliding ")
 		if $BuildCursor.get_child_count() > 0:
-			$BuildCursor.get_child(0).hide();
+			$BuildCursor.get_child(0).get_node("Place").modulate = Color.RED;
+			#$BuildCursor.get_child(0).hide();
 	else:
 		#print("x: ", x, " y: ", y)
-		$BuildCursor.get_child(0).show();
+		if $BuildCursor.get_child_count() > 0:
+			var plant = $BuildCursor.get_child(0);
+			if plant.has_node("Place"):
+				plant.show();
+				plant.get_node("Place").modulate = Color.WHITE;
 
 	$BuildCursor.position = tile_pos * tile_size;
 	
@@ -149,7 +154,12 @@ func _on_cursor_mode_change(mode):
 	if plants_by_name.has(type):
 		$BuildCursor.show();
 		var new_plant = get_new_plant(type);
+		var new_place = new_plant.get_node("Place");
+		
+		#new_place.get_parent().remove_child(new_place);
 		$BuildCursor.add_child(new_plant);
+		new_plant.get_node("AnimatedSprite2D").hide();
+		new_place.show();
 	else:
 		$BuildCursor.hide();
 

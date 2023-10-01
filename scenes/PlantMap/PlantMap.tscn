@@ -136,7 +136,7 @@ sources/1 = SubResource("TileSetAtlasSource_3guu3")
 sources/0 = SubResource("TileSetAtlasSource_hem13")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn8h3"]
-size = Vector2(1300, 739)
+size = Vector2(512, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq1v"]
 size = Vector2(128, 192)
@@ -164,17 +164,19 @@ layer_0/tile_data = PackedInt32Array(65540, 0, 0, 131077, 0, 0, 65541, 0, 0, 131
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollider"]
 visible = false
-position = Vector2(650, 369.5)
+position = Vector2(256, 96)
 shape = SubResource("RectangleShape2D_sn8h3")
 
 [node name="Plants" type="Node2D" parent="."]
 
 [node name="BuildCursor" type="Node2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0.243137)
-self_modulate = Color(1, 1, 1, 0.443137)
 
 [node name="ColorRect" type="ColorRect" parent="BuildCursor"]
+offset_right = 60.0
+offset_bottom = 59.0
+
+[node name="ColorRect2" type="ColorRect" parent="BuildCursor"]
 offset_right = 60.0
 offset_bottom = 59.0
 
@@ -210,11 +212,7 @@ script = ExtResource("7_1y28p")
 position = Vector2(160, 32)
 shape = SubResource("RectangleShape2D_ygisn")
 
-[node name="BuildCursor" type="Node2D" parent="."]
+[node name="BuildCursor2" type="Node2D" parent="."]
 visible = false
-
-[node name="ColorRect" type="ColorRect" parent="BuildCursor"]
-offset_right = 60.0
-offset_bottom = 59.0
 
 [connection signal="input_event" from="MouseCollider" to="." method="_on_mouse_collider_input_event"]
