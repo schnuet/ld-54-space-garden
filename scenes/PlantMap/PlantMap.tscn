@@ -178,6 +178,10 @@ self_modulate = Color(1, 1, 1, 0.443137)
 offset_right = 60.0
 offset_bottom = 59.0
 
+[node name="ColorRect2" type="ColorRect" parent="BuildCursor"]
+offset_right = 60.0
+offset_bottom = 59.0
+
 [node name="Blocker1" type="Area2D" parent="." groups=["blocker"]]
 position = Vector2(64, 0)
 script = ExtResource("4_cnkhr")
@@ -210,11 +214,7 @@ script = ExtResource("7_1y28p")
 position = Vector2(160, 32)
 shape = SubResource("RectangleShape2D_ygisn")
 
-[node name="BuildCursor" type="Node2D" parent="."]
+[node name="BuildCursor2" type="Node2D" parent="."]
 visible = false
-
-[node name="ColorRect" type="ColorRect" parent="BuildCursor"]
-offset_right = 60.0
-offset_bottom = 59.0
 
 [connection signal="input_event" from="MouseCollider" to="." method="_on_mouse_collider_input_event"]
