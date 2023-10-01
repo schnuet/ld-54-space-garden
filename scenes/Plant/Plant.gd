@@ -9,7 +9,8 @@ enum GrowthState {
 	sapling,
 	mid,
 	final,
-	infected
+	infected,
+	dead
 };
 
 # flags
@@ -66,26 +67,38 @@ func get_all_neighbour_plants() -> Array[Plant]:
 	
 func kill():
 	print("KILL ", type);
-	queue_free();
+	if growth_state != GrowthState.dead:
+		change_to_state(GrowthState.dead);
 	
+func harvest():
+	print("DELETE ", type);
+	if growth_state != GrowthState.dead:
+		queue_free();
+
 func buff():
 	print("BUFF ", type);
-	buffs += buff_amount;
+	if growth_state != GrowthState.dead:
+		buffs += buff_amount;
 
 func nerf():
 	print("NERF ", type);
-	buffs -= buff_amount;
+	if growth_state != GrowthState.dead:
+		buffs -= buff_amount;
 	
 func neutralize():
 	print("NEUTRALIZE ", type);
-	neutralize_count += 1;
+	if growth_state != GrowthState.dead:
+		neutralize_count += 1;
 	
 func deneutralize():
 	print("DENEUTRALIZE ", type);
-	neutralize_count -= 1;
+	if growth_state != GrowthState.dead:
+		neutralize_count -= 1;
 
 func is_neutralized():
-	return neutralize_count > 0;
+	print("NEUTRALIZE ", type);
+	if growth_state != GrowthState.dead:
+		return neutralize_count > 0;
 
 
 func affect_plant(plant: Plant):
@@ -153,3 +166,5 @@ func _on_mouse_exited():
 
 func _handle_click(mouse_position: Vector2):
 	print("plant click ", self);
+	if growth_state == GrowthState.dead:
+		harvest();
