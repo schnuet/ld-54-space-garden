@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0t1lcxkscwua"]
+[gd_scene load_steps=18 format=3 uid="uid://d0t1lcxkscwua"]
 
 [ext_resource type="Texture2D" uid="uid://c7fxxyieryuut" path="res://scenes/PlantMap/space_garden_floor_tile_1.png" id="1_cs77c"]
 [ext_resource type="Texture2D" uid="uid://ckpt6wt1x8byq" path="res://scenes/PlantMap/bg_placeholder.png" id="1_d1pui"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/PlantMap/Blocker2.gd" id="5_15xdm"]
 [ext_resource type="Script" path="res://scenes/PlantMap/Blocker3.gd" id="6_qbg0e"]
 [ext_resource type="Script" path="res://scenes/PlantMap/Blocker4.gd" id="7_1y28p"]
+[ext_resource type="Script" path="res://scenes/PlantMap/Blocker5.gd" id="8_4tj2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hem13"]
 texture = ExtResource("1_cs77c")
@@ -139,15 +140,18 @@ sources/0 = SubResource("TileSetAtlasSource_hem13")
 size = Vector2(512, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qq1v"]
-size = Vector2(128, 192)
+size = Vector2(64, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0s2m"]
-size = Vector2(128, 128)
+size = Vector2(64, 192)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydifu"]
-size = Vector2(192, 128)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygisn"]
+size = Vector2(192, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvms1"]
 size = Vector2(320, 64)
 
 [node name="PlantMap" type="Node2D"]
@@ -185,7 +189,7 @@ position = Vector2(64, 0)
 script = ExtResource("4_cnkhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker1"]
-position = Vector2(64, 96)
+position = Vector2(32, 96)
 shape = SubResource("RectangleShape2D_3qq1v")
 
 [node name="Blocker2" type="Area2D" parent="." groups=["blocker"]]
@@ -193,24 +197,32 @@ position = Vector2(192, 0)
 script = ExtResource("5_15xdm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker2"]
-position = Vector2(64, 64)
+position = Vector2(-32, 96)
 shape = SubResource("RectangleShape2D_y0s2m")
 
 [node name="Blocker3" type="Area2D" parent="." groups=["blocker"]]
-position = Vector2(320, 0)
+position = Vector2(192, 0)
 script = ExtResource("6_qbg0e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker3"]
-position = Vector2(96, 64)
+position = Vector2(64, 64)
 shape = SubResource("RectangleShape2D_ydifu")
 
 [node name="Blocker4" type="Area2D" parent="." groups=["blocker"]]
-position = Vector2(192, 128)
+position = Vector2(320, 0)
 script = ExtResource("7_1y28p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker4"]
-position = Vector2(160, 32)
+position = Vector2(96, 64)
 shape = SubResource("RectangleShape2D_ygisn")
+
+[node name="Blocker5" type="Area2D" parent="." groups=["blocker"]]
+position = Vector2(192, 128)
+script = ExtResource("8_4tj2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocker5"]
+position = Vector2(160, 32)
+shape = SubResource("RectangleShape2D_vvms1")
 
 [node name="BuildCursor2" type="Node2D" parent="."]
 visible = false

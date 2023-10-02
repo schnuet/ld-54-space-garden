@@ -3,30 +3,61 @@ extends Control
 var timer = null;
 var tween = null;
 
-@onready var portrait = $Portrait;
-@onready var speech_box = $Speech;
-@onready var panel = $Panel;
+@onready var box_chef = $chef;
+@onready var box_prof = $prof;
+@onready var box = null;
+@onready var speech_box = null;
+@onready var panel = null;
+@onready var portrait = null;
+
+@onready var backdrop = $Backdrop;
+
+func _ready():
+	backdrop.hide();
+	box_chef.hide();
+	box_prof.hide();
 
 func do_dialog(lines: Array, scene_to_pause: Node = null):
 	move_to_front();
 	if scene_to_pause:
 		scene_to_pause.process_mode = Node.PROCESS_MODE_DISABLED;
 	
-	panel.show();
-	speech_box.show();
+	show_backdrop();
+	await get_tree().create_timer(0.75).timeout;
+	
 	print("visible", speech_box);
 	
 	for line in lines:
+		if line.get("actor") == "chef":
+			await switch_box(box_chef);
+		else:
+			await switch_box(box_prof);
+		
 		if line.get("type") == "line":
 			await update_speech(line);
 		elif line.get("type") == "action":
 			await line.get("action").call();
 	
-	panel.hide();
-	speech_box.hide();
+	hide_box(box);
+	hide_backdrop();
+	
+	box = null;
 	
 	if scene_to_pause:
 		scene_to_pause.process_mode = Node.PROCESS_MODE_INHERIT;
+	
+func switch_box(new_box):
+	if box == new_box:
+		return;
+	
+	hide_box(box);
+		
+	box = new_box;
+	panel = box.get_node("Panel");
+	speech_box = panel.get_node("Speech");
+	speech_box.text = "";
+	portrait = box.get_node("Portrait");
+	await show_box(box);
 
 func update_speech(line):
 	var texts = line.get("lines");
@@ -34,10 +65,8 @@ func update_speech(line):
 	speech_box.text = "";
 	
 	if line.get("style") == "scream":
-		portrait.animation = "scream";
 		speech_box.uppercase = true;
 	else:
-		portrait.animation = "normal";
 		speech_box.uppercase = false;
 	
 	for text in texts:
@@ -58,6 +87,52 @@ func update_speech(line):
 	timer = get_tree().create_timer(len(speech_box.text) * 0.2);
 	await timer.timeout
 
+func show_box(box):
+	if box == null:
+		return;
+	if box.visible == true:
+		return;
+	
+	box.show();
+	
+	#animate potrait
+	var p_final_x = portrait.position.x;
+	if box == box_chef:
+		portrait.position.x -= 40;
+	else:
+		portrait.position.x += 40;
+	var portrait_tween = get_tree().create_tween();
+	portrait_tween.tween_property(portrait, "position:x", p_final_x, 0.125);
+	portrait_tween.set_ease(Tween.EASE_OUT);
+	
+	#animate panel
+	var panel_final_y = panel.position.y;
+	panel.position.y += 10;
+	var panel_tween = get_tree().create_tween();
+	panel_tween.tween_property(panel, "position:y", panel_final_y, 0.125);
+	panel_tween.set_ease(Tween.EASE_OUT);
+	
+	await panel_tween.finished
+
+func hide_box(box):
+	if box == null:
+		return;
+	if box.visible == false:
+		return;
+	
+	box.hide();
+
+
+func show_backdrop():
+	backdrop.color = Color.TRANSPARENT;
+	backdrop.show();
+	var tween = get_tree().create_tween();
+	tween.tween_property(backdrop, "color", Color(0, 0, 0, 0.5), 0.5);
+	
+func hide_backdrop():
+	var tween = get_tree().create_tween();
+	tween.tween_property(backdrop, "color", Color.TRANSPARENT, 0.5);
+	tween.tween_callback(backdrop.hide);
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.is_pressed():

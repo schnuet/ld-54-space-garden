@@ -32,10 +32,10 @@ func _ready():
 	connect("mouse_exited", _on_mouse_exited);
 	add_to_group("plant");
 	
-	grow_timer.wait_time = 1; # 1 second
-	grow_timer.connect("timeout", _on_grow_timer);
-	add_child(grow_timer);
-	grow_timer.start();
+#	grow_timer.wait_time = 1; # 1 second
+#	grow_timer.connect("timeout", _on_grow_timer);
+#	add_child(grow_timer);
+#	grow_timer.start();
 	
 	sprite.play();
 
@@ -129,7 +129,7 @@ func change_to_state(new_state: GrowthState):
 
 
 func _on_plant():
-	change_to_state(GrowthState.sapling);
+	change_to_state(GrowthState.final);
 	planted = true;
 	await get_tree().physics_frame;
 

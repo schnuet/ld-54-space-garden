@@ -22,12 +22,13 @@ func _on_plant_map_level_changed(level_index):
 	# enable plants
 	if level_index == 1:
 		$Menu/PlantButtonStan.enable();
-		$Menu/PlantButtonJeff.enable();
 	if level_index == 2:
-		$Menu/PlantButtonAssi.enable();
+		$Menu/PlantButtonJeff.enable();
 	if level_index == 3:
-		$Menu/PlantButtonFrank.enable();
+		$Menu/PlantButtonAssi.enable();
 	if level_index == 4:
+		$Menu/PlantButtonFrank.enable();
+	if level_index == 5:
 		$Menu/PlantButtonToni.enable();
 
 func _on_cursor_mode_changed(mode):

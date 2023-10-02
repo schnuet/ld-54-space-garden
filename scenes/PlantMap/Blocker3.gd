@@ -1,4 +1,4 @@
 extends Area2D
 
-var width = 3 * 64;
+var width = 2 * 64;
 var height = 2 * 64;

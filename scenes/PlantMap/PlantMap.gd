@@ -33,6 +33,12 @@ var levels = [
 	},
 	{
 		"required_plants": {
+			"BHi": 3,
+			"Stan": 1,
+		}
+	},
+	{
+		"required_plants": {
 			"BHi": 2,
 			"Stan": 1,
 			"Jeff": 1
@@ -92,22 +98,25 @@ func _process(delta):
 	if x > 7 or x < 0:
 		#print("x: ", x, " y: ", y)
 		if $BuildCursor.get_child_count() > 0:
-			$BuildCursor.get_child(0).hide();
+			var plant = $BuildCursor.get_child(0);
+			plant.hide();
 	elif y > 2 or y < 0:
 		#print("x: ", x, " y: ", y)
 		if $BuildCursor.get_child_count() > 0:
-			$BuildCursor.get_child(0).hide();
+			var plant = $BuildCursor.get_child(0);
+			plant.hide();
 	elif is_cursor_plant_colliding():
-		#print("colliding ")
+		var plant = $BuildCursor.get_child(0);
+		plant.show();
 		if $BuildCursor.get_child_count() > 0:
-			$BuildCursor.get_child(0).get_node("Place").modulate = Color.RED;
+			plant.get_node("Place").modulate = Color.RED;
 			#$BuildCursor.get_child(0).hide();
 	else:
 		#print("x: ", x, " y: ", y)
 		if $BuildCursor.get_child_count() > 0:
 			var plant = $BuildCursor.get_child(0);
+			plant.show();
 			if plant.has_node("Place"):
-				plant.show();
 				plant.get_node("Place").modulate = Color.WHITE;
 
 	$BuildCursor.position = tile_pos * tile_size;
@@ -117,9 +126,15 @@ func _process(delta):
 
 
 func _on_level_done():
+	update_level();
+
+
+func update_level():
 	current_level_index += 1;
 	emit_signal("level_changed", current_level_index);
-	get_node("Blocker" + str(current_level_index)).queue_free();
+	var blocker_path = "Blocker" + str(current_level_index);
+	if has_node(blocker_path):
+		get_node(blocker_path).queue_free();
 	
 	
 func get_new_plant(type) -> Plant:
