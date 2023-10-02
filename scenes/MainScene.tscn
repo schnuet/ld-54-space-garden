@@ -1,4 +1,4 @@
-[gd_scene load_steps=235 format=3 uid="uid://fbk1capf22s7"]
+[gd_scene load_steps=237 format=3 uid="uid://fbk1capf22s7"]
 
 [ext_resource type="PackedScene" uid="uid://d0t1lcxkscwua" path="res://scenes/PlantMap/PlantMap.tscn" id="1_7vaon"]
 [ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_ggjwf"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://r766y3rtegbm" path="res://scenes/PlantButton/button_standard_.png" id="9_r47t7"]
 [ext_resource type="Texture2D" uid="uid://cwr26ejqi4uj1" path="res://scenes/PlantButton/button_hover_.png" id="10_oghla"]
 [ext_resource type="Texture2D" uid="uid://djgxijeynqaqb" path="res://scenes/MainScene/space_garden_table-light-effectt.png" id="12_tu3v7"]
+[ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://assets/fonts/MunroSmall-wPZw.ttf" id="13_p4p20"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kvqp"]
 atlas = ExtResource("9_r47t7")
@@ -1603,6 +1604,9 @@ animations = [{
 "speed": 40.0
 }]
 
+[sub_resource type="FontVariation" id="FontVariation_pjgab"]
+base_font = ExtResource("13_p4p20")
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_ggjwf")
 
@@ -1705,21 +1709,121 @@ modulate = Color(1, 1, 1, 0.482353)
 texture = ExtResource("12_tu3v7")
 centered = false
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 521.0
-offset_top = -4.0
-offset_right = 647.0
-offset_bottom = 54.0
+[node name="Tasks" type="Panel" parent="."]
+offset_left = 537.0
+offset_top = -1.0
+offset_right = 662.0
+offset_bottom = 38.0
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Tasks"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 10.0
-offset_right = 132.0
-offset_bottom = 62.0
-theme_override_font_sizes/font_size = 12
-text = "One of each
-Fill all fields"
+offset_top = 4.0
+offset_right = 49.0
+offset_bottom = 37.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="OneOfEach" type="Control" parent="Tasks/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/OneOfEach"]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 19.0
+
+[node name="Label" type="Label" parent="Tasks/VBoxContainer/OneOfEach"]
+offset_left = 20.0
+offset_right = 131.0
+offset_bottom = 14.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("FontVariation_pjgab")
+theme_override_font_sizes/font_size = 10
+text = "One of each"
+uppercase = true
+
+[node name="TwoPurple" type="Control" parent="Tasks/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tasks/VBoxContainer/TwoPurple"]
+offset_left = 20.0
+offset_right = 143.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("FontVariation_pjgab")
+theme_override_font_sizes/font_size = 10
+text = "2x"
+uppercase = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Tasks/VBoxContainer/TwoPurple"]
+position = Vector2(40, 8)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_ga4fq")
+
+[node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/TwoPurple"]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 19.0
+
+[node name="TwoRed" type="Control" parent="Tasks/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tasks/VBoxContainer/TwoRed"]
+offset_left = 20.0
+offset_right = 143.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("FontVariation_pjgab")
+theme_override_font_sizes/font_size = 10
+text = "2x"
+uppercase = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tasks/VBoxContainer/TwoRed"]
+position = Vector2(40, 8)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_hsl7l")
+
+[node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/TwoRed"]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 19.0
+
+[node name="FillTheBoard" type="Control" parent="Tasks/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Tasks/VBoxContainer/FillTheBoard"]
+offset_left = 20.0
+offset_right = 143.0
+offset_bottom = 15.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = SubResource("FontVariation_pjgab")
+theme_override_font_sizes/font_size = 10
+text = "Fill the board"
+uppercase = true
+
+[node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/FillTheBoard"]
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 20.0
+offset_bottom = 19.0
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
 [connection signal="level_done" from="PlantMap" to="." method="_on_plant_map_level_done"]

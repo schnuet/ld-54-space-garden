@@ -22,6 +22,30 @@ func _on_plant_map_level_changed(level_index):
 	
 	$LevelIndex.text = "Level: " + str(level_index + 1);
 	
+	var task_container = $Tasks/VBoxContainer;
+	var tasks = task_container.get_children();
+	for task in tasks:
+		task.hide();
+	
+	# show task
+	match level_index:
+		0:
+			task_container.get_node("FillTheBoard").show();
+		1:
+			task_container.get_node("FillTheBoard").show();
+			task_container.get_node("OneOfEach").show();
+		2:
+			task_container.get_node("OneOfEach").show();
+			task_container.get_node("TwoPurple").show();
+		3:
+			task_container.get_node("OneOfEach").show();
+		4:
+			task_container.get_node("OneOfEach").show();
+			task_container.get_node("TwoRed").show();
+		5:
+			task_container.get_node("OneOfEach").show();
+			task_container.get_node("FillTheBoard").show();
+	
 	# enable plants
 	if level_index >= 1:
 		$Menu/PlantButtonStan.enable();
@@ -33,7 +57,6 @@ func _on_plant_map_level_changed(level_index):
 		$Menu/PlantButtonFrank.enable();
 	if level_index >= 5:
 		$Menu/PlantButtonToni.enable();
-
 
 
 func _on_plant_map_level_done(level_index):
