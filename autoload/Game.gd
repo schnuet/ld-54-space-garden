@@ -21,3 +21,7 @@ func set_cursor_mode(mode):
 
 	cursor_mode = mode;
 	emit_signal("cursor_mode_changed", mode);
+
+func wait(seconds):
+	return await get_tree().create_timer(seconds).timeout;
+

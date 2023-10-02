@@ -1706,16 +1706,20 @@ texture = ExtResource("12_tu3v7")
 centered = false
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 386.0
+offset_left = 521.0
 offset_top = -4.0
 offset_right = 647.0
-offset_bottom = 34.0
+offset_bottom = 54.0
 
 [node name="Label" type="Label" parent="Panel"]
-offset_left = 10.0
-offset_top = 8.0
-offset_right = 248.0
-offset_bottom = 34.0
-text = "One of each, and fill the board!"
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 132.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 12
+text = "One of each
+Fill all fields"
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
+[connection signal="level_done" from="PlantMap" to="." method="_on_plant_map_level_done"]

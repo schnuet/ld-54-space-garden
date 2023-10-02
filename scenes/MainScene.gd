@@ -1,7 +1,11 @@
 extends Node2D
 
+@onready var menu = $Menu;
+@onready var default_menu_y = menu.position.y;
+
 func _ready():
-	Game.connect("cursor_mode_changed", _on_cursor_mode_changed);
+	
+	menu.position.y = default_menu_y + 50;
 	
 	$Menu/PlantButtonStan.disable();
 	$Menu/PlantButtonJeff.disable();
@@ -15,33 +19,37 @@ func _process(delta):
 	pass
 
 func _on_plant_map_level_changed(level_index):
+	
 	$LevelIndex.text = "Level: " + str(level_index + 1);
 	
-	await show_level_intro(level_index);
-	
 	# enable plants
-	if level_index == 1:
+	if level_index >= 1:
 		$Menu/PlantButtonStan.enable();
-	if level_index == 2:
+	if level_index >= 2:
 		$Menu/PlantButtonJeff.enable();
-	if level_index == 3:
+	if level_index >= 3:
 		$Menu/PlantButtonAssi.enable();
-	if level_index == 4:
+	if level_index >= 4:
 		$Menu/PlantButtonFrank.enable();
-	if level_index == 5:
+	if level_index >= 5:
 		$Menu/PlantButtonToni.enable();
 
-func _on_cursor_mode_changed(mode):
-#	var node_path = "Menu/PlantButton" + mode + "/AnimatedSprite2D";
-#	if has_node(node_path):
-#		var sprite = get_node(node_path);
-#		$CursorImage.sprite_frames = sprite.sprite_frames;
-#		$CursorImage.show();
-#		$CursorImage.play();
-#
-#	else:
-#		$CursorImage.hide();
-	pass
+
+
+func _on_plant_map_level_done(level_index):
+	print("main: level done", level_index);
+	await fade_out_menu();
+	
+	$PlantMap.remove_all_plants();
+	
+	await Game.wait(0.5);
+	
+	await show_level_intro(level_index + 1);
+	
+	await $PlantMap.update_level(level_index + 1);
+	
+	await fade_in_menu();
+
 
 func show_level_intro(level_index):
 	match level_index:
@@ -132,18 +140,14 @@ func show_level_intro(level_index):
 			], self);
 
 
-@onready var default_menu_y = $Menu.position.y;
-
 func fade_out_menu():
-	var menu = $Menu;
 	var tween = get_tree().create_tween();
-	tween.tween_property(menu, "property:y", default_menu_y + 50, 1);
+	tween.tween_property(menu, "position:y", default_menu_y + 50, 1);
 	tween.set_ease(Tween.EASE_IN);
 	await tween.finished;
 
 func fade_in_menu():
-	var menu = $Menu;
 	var tween = get_tree().create_tween();
-	tween.tween_property(menu, "property:y", default_menu_y, 1);
-	tween.set_ease(Tween.EASE_IN);
+	tween.tween_property(menu, "position:y", default_menu_y, 1);
+	tween.set_ease(Tween.EASE_OUT);
 	await tween.finished;
