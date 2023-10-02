@@ -243,7 +243,7 @@ func is_cursor_plant_colliding() -> bool:
 			if mouse_pos.x > 6:
 				return true;
 		"Frank":
-			if mouse_pos.x > 5 or mouse_pos != 1:
+			if mouse_pos.x > 5 or mouse_pos.x != 1:
 				return true;
 		"Toni":
 			if mouse_pos.x > 5 or mouse_pos.y < 1:
@@ -285,6 +285,11 @@ func is_level_done():
 		return;
 	
 	var counts = get_grown_plant_count();
+	var plants = get_all_plants();
+	
+	for plant in plants:
+		if not(plant.affected):
+			return false;
 	
 	var required_counts = level["required_plants"];
 	
