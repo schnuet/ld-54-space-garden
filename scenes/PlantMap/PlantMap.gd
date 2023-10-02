@@ -77,16 +77,14 @@ var levels = [
 	}
 ];
 
-var spaces = [
-	{
-		"BHi": 1,
-		"Stan": 3,
-		"Jeff": 3,
-		"Assi": 2,
-		"Frank": 5,
-		"Toni": 4
-	}
-];
+var spaces = {
+	"BHi": 1,
+	"Stan": 3,
+	"Jeff": 3,
+	"Assi": 2,
+	"Frank": 5,
+	"Toni": 4
+};
 
 var current_level_index = 0;
 
@@ -302,21 +300,26 @@ func get_current_level():
 
 func is_two_of(type) -> bool:
 	var compare = get_grown_plant_count();
-	return compare[type] == 2;
+	if compare.has(type):
+		return compare[type] == 2;
+	return false;
 
 func is_one_of_each() -> bool:
 	var active_plants = get_grown_plant_count();
 	var active_level = get_current_level();
 	var required_plants = active_level["required_plants"];
 	
-	var feedback = true;
-	
+	if active_plants.is_empty():
+		return false;
+		
 	for type in required_plants:
-		if not active_plants[type] >= 1:
-			feedback = false;
-			break;
+		if active_plants.has(type):
+			if not active_plants[type] >= 1:
+				return false;
+		else:
+			return false;
 	
-	return feedback;
+	return true;
 	
 func is_board_filled() -> bool:
 	var active_plants = get_grown_plant_count();
