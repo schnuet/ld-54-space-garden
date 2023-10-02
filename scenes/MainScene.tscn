@@ -1649,7 +1649,7 @@ position = Vector2(64, 96)
 position = Vector2(0, 13)
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(161, 328)
+position = Vector2(177, 328)
 plant_type = "BHi"
 metadata/_edit_group_ = true
 
