@@ -1,27 +1,50 @@
-extends AudioStreamPlayer
+extends Node
 
-var current_music_name = "";
-
-# register and preload your music streams here:
-var music_streams = {
-	"main": preload("res://assets/music/stork-inc-maintheme.ogg"),
-};
+@onready var players = get_children() as Array[AudioStreamPlayer];
+@onready var current_player = null;
 
 func _ready():
-	for stream_name in music_streams:
-		var s = music_streams.get(stream_name);
-		s.loop = true;
+	for player in players:
+		player.volume_db = -60;
+		var stream = player.stream;
+		stream.loop = true;
+	
+func play_music(music_name: String):
+	for player in players:
+		player.play();
+	
+	fade_to(music_name);
 
-func play_music(music_name:String):
-	if current_music_name == music_name:
+func fade_to(music_name):
+	if current_player and current_player.name == music_name:
 		return;
 	
-	stop();
+	var player = get_node(music_name);
 	
-	current_music_name = music_name;
-	stream = music_streams.get(current_music_name);
+	var time = 3;
 	
-	play();
+	var tween = get_tree().create_tween();
 	
-func register_stream(stream_path:String, music_name:String):
-	music_streams[music_name] = load(stream_path);
+	if current_player:
+		# fade out current player
+		tween.tween_property(current_player, "volume_db", -60, time * 2);
+	
+	# fade in
+	tween.tween_property(player, "volume_db", -2, time);
+	
+	current_player = player;
+	
+#
+#func play_music(music_name:String):
+#	if current_music_name == music_name:
+#		return;
+#
+#	stop();
+#
+#	current_music_name = music_name;
+#	stream = music_streams.get(current_music_name);
+#
+#	play();
+#
+#func register_stream(stream_path:String, music_name:String):
+#	music_streams[music_name] = load(stream_path);

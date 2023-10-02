@@ -29,6 +29,7 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
+mouse_cursor/custom_image="res://assets/space_garden_cursor.png"
 
 [editor_plugins]
 

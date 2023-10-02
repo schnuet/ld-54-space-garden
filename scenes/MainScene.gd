@@ -9,6 +9,7 @@ extends Node2D
 
 
 func _ready():
+	MusicPlayer.fade_to("radio");
 	Game.init_vars();
 	task_panel.hide();
 	menu.position.y = default_menu_y + 50;
