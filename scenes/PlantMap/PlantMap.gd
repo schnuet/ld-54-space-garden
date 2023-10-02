@@ -74,6 +74,8 @@ var levels = [
 ];
 var current_level_index = 0;
 
+var paused = false;
+
 func _ready():
 	#start the game after a small delay
 	var timer = get_tree().create_timer(0.1).connect("timeout", start);
@@ -126,7 +128,10 @@ func _process(delta):
 
 
 func _on_level_done():
+	paused = true;
+	
 	update_level();
+	paused = false;
 
 
 func update_level():
@@ -260,6 +265,9 @@ func is_level_done():
 
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
+	if paused:
+		return;
+	
 	if event is InputEventMouseButton and event.is_pressed():
 		
 		var blocker = get_tree().get_nodes_in_group("blocker");

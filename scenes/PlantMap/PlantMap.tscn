@@ -172,6 +172,7 @@ position = Vector2(256, 96)
 shape = SubResource("RectangleShape2D_sn8h3")
 
 [node name="Plants" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BuildCursor" type="Node2D" parent="."]
 visible = false

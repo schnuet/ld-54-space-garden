@@ -39,6 +39,30 @@ offset_bottom = 441.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.192157)
 
+[node name="prof" type="Node2D" parent="."]
+
+[node name="Portrait" type="Sprite2D" parent="prof"]
+position = Vector2(540, 243)
+scale = Vector2(2, 2)
+texture = ExtResource("2_8q5f7")
+
+[node name="Panel" type="Panel" parent="prof"]
+offset_left = 17.0
+offset_top = 253.0
+offset_right = 487.0
+offset_bottom = 348.0
+metadata/_edit_group_ = true
+
+[node name="Speech" type="Label" parent="prof/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 453.0
+offset_bottom = 84.0
+text = "This is a standard text!"
+autowrap_mode = 3
+visible_characters_behavior = 1
+
 [node name="chef" type="Node2D" parent="."]
 visible = false
 
@@ -65,26 +89,12 @@ text = "This is a standard text!"
 autowrap_mode = 3
 visible_characters_behavior = 1
 
-[node name="prof" type="Node2D" parent="."]
-
-[node name="Portrait" type="Sprite2D" parent="prof"]
-position = Vector2(540, 243)
-scale = Vector2(2, 2)
-texture = ExtResource("2_8q5f7")
-
-[node name="Panel" type="Panel" parent="prof"]
-offset_left = 17.0
-offset_top = 253.0
-offset_right = 487.0
-offset_bottom = 348.0
-metadata/_edit_group_ = true
-
-[node name="Speech" type="Label" parent="prof/Panel"]
+[node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 453.0
-offset_bottom = 84.0
-text = "This is a standard text!"
-autowrap_mode = 3
-visible_characters_behavior = 1
+offset_left = 538.0
+offset_top = 17.0
+offset_right = 623.0
+offset_bottom = 48.0
+text = "Skip"
+
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]

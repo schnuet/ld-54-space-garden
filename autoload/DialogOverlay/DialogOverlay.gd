@@ -12,10 +12,13 @@ var tween = null;
 
 @onready var backdrop = $Backdrop;
 
+var skip = false;
+
 func _ready():
 	backdrop.hide();
 	box_chef.hide();
 	box_prof.hide();
+	$SkipButton.hide();
 
 func do_dialog(lines: Array, scene_to_pause: Node = null):
 	move_to_front();
@@ -24,10 +27,15 @@ func do_dialog(lines: Array, scene_to_pause: Node = null):
 	
 	show_backdrop();
 	await get_tree().create_timer(0.75).timeout;
+	skip = false;
+	$SkipButton.show();
 	
 	print("visible", speech_box);
 	
 	for line in lines:
+		if skip == true:
+			continue;
+
 		if line.get("actor") == "chef":
 			await switch_box(box_chef);
 		else:
@@ -38,10 +46,12 @@ func do_dialog(lines: Array, scene_to_pause: Node = null):
 		elif line.get("type") == "action":
 			await line.get("action").call();
 	
+	$SkipButton.hide();
 	hide_box(box);
 	hide_backdrop();
 	
 	box = null;
+	skip = false;
 	
 	if scene_to_pause:
 		scene_to_pause.process_mode = Node.PROCESS_MODE_INHERIT;
@@ -70,6 +80,9 @@ func update_speech(line):
 		speech_box.uppercase = false;
 	
 	for text in texts:
+		if skip == true:
+			return;
+			
 		print("next line!");
 		var old_text_length = len(speech_box.text);
 		if old_text_length > 0:
@@ -83,6 +96,9 @@ func update_speech(line):
 		speech_box.visible_characters = text_length;
 		timer = get_tree().create_timer(0.3)
 		await timer.timeout;
+	
+	if skip == true:
+		return;
 	
 	timer = get_tree().create_timer(len(speech_box.text) * 0.2);
 	await timer.timeout
@@ -141,3 +157,14 @@ func _unhandled_input(event):
 		elif tween != null and tween.is_running():
 			tween.stop();
 			tween.emit_signal("finished");
+
+
+func _on_skip_button_pressed():
+	skip = true;
+	
+	if timer != null and timer.time_left > 0:
+		timer.time_left = 0;
+		timer.emit_signal("timeout");
+	elif tween != null and tween.is_running():
+		tween.stop();
+		tween.emit_signal("finished");
