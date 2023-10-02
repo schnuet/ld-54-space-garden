@@ -130,3 +130,20 @@ func show_level_intro(level_index):
 					]
 				}
 			], self);
+
+
+@onready var default_menu_y = $Menu.position.y;
+
+func fade_out_menu():
+	var menu = $Menu;
+	var tween = get_tree().create_tween();
+	tween.tween_property(menu, "property:y", default_menu_y + 50, 1);
+	tween.set_ease(Tween.EASE_IN);
+	await tween.finished;
+
+func fade_in_menu():
+	var menu = $Menu;
+	var tween = get_tree().create_tween();
+	tween.tween_property(menu, "property:y", default_menu_y, 1);
+	tween.set_ease(Tween.EASE_IN);
+	await tween.finished;

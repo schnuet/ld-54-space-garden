@@ -132,6 +132,19 @@ func _on_plant():
 	change_to_state(GrowthState.final);
 	planted = true;
 	await get_tree().physics_frame;
+	
+	if get_tile_position().y == 0:
+#		$AnimatedSprite2D.self_modulate = Color(180, 180, 180);
+		$AnimatedSprite2D.self_modulate = Color(0.5, 0.5, 0.5);
+	elif get_tile_position().y == 1:
+#		$AnimatedSprite2D.self_modulate = Color(220, 220, 220);
+		$AnimatedSprite2D.self_modulate = Color(0.75, 0.75, 0.75);
+	else:
+		$AnimatedSprite2D.self_modulate = Color.WHITE;
+
+
+func get_tile_position():
+	return floor(position / 64);
 
 
 func _on_grow_timer():

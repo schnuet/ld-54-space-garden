@@ -1649,15 +1649,17 @@ position = Vector2(64, 96)
 position = Vector2(0, 13)
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(152, 328)
+position = Vector2(161, 328)
 plant_type = "BHi"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonBHi"]
 sprite_frames = SubResource("SpriteFrames_ga4fq")
 
 [node name="PlantButtonStan" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(224, 328)
+position = Vector2(233, 328)
 plant_type = "Stan"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonStan"]
 sprite_frames = SubResource("SpriteFrames_hsl7l")
@@ -1666,27 +1668,31 @@ animation = &"hover"
 [node name="PlantButtonJeff" parent="Menu" instance=ExtResource("2_bm6uj")]
 position = Vector2(288, 328)
 plant_type = "Jeff"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonJeff"]
 sprite_frames = SubResource("SpriteFrames_wfkdk")
 
 [node name="PlantButtonAssi" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(360, 328)
+position = Vector2(343, 328)
 plant_type = "Assi"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonAssi"]
 sprite_frames = SubResource("SpriteFrames_ucvli")
 
 [node name="PlantButtonFrank" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(432, 328)
+position = Vector2(399, 328)
 plant_type = "Frank"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonFrank"]
 sprite_frames = SubResource("SpriteFrames_1u42c")
 
 [node name="PlantButtonToni" parent="Menu" instance=ExtResource("2_bm6uj")]
-position = Vector2(504, 328)
+position = Vector2(457, 328)
 plant_type = "Toni"
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu/PlantButtonToni"]
 sprite_frames = SubResource("SpriteFrames_kw3fg")
@@ -1698,5 +1704,18 @@ modulate = Color(1, 1, 1, 0.482353)
 [node name="SpaceGardenTable-light-effectt" type="Sprite2D" parent="."]
 texture = ExtResource("12_tu3v7")
 centered = false
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 386.0
+offset_top = -4.0
+offset_right = 647.0
+offset_bottom = 34.0
+
+[node name="Label" type="Label" parent="Panel"]
+offset_left = 10.0
+offset_top = 8.0
+offset_right = 248.0
+offset_bottom = 34.0
+text = "One of each, and fill the board!"
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
