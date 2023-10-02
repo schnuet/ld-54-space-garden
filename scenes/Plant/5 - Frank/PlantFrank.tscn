@@ -1,11 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba7ah16vc00j5"]
+[gd_scene load_steps=18 format=3 uid="uid://ba7ah16vc00j5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/5 - Frank/PlantFrank.gd" id="1_7a53u"]
 [ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_1ifuc"]
-[ext_resource type="Texture2D" uid="uid://p6yrn0bmmo18" path="res://scenes/Plant/5 - Frank/space_garden_final_plant_5.png" id="2_ke2sf"]
-[ext_resource type="Texture2D" uid="uid://cauxcsi4vgduu" path="res://scenes/Plant/5 - Frank/space_garden_mid_plant_5.png" id="3_3sryp"]
-[ext_resource type="Texture2D" uid="uid://bopc8ypvo3njw" path="res://scenes/Plant/5 - Frank/space_garden_sapling_plant_5.png" id="4_phyki"]
+[ext_resource type="Texture2D" uid="uid://36qp4qln1p57" path="res://scenes/Plant/5 - Frank/space_garden_final_plant_5_anim.png" id="3_3h7fl"]
 [ext_resource type="Texture2D" uid="uid://c6jii04vx7qta" path="res://scenes/Plant/5 - Frank/PlaceFrank.png" id="6_gpnex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yp0h"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(0, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neen0"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(192, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ithi0"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(384, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aimpd"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(576, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phkrb"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(0, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7jce"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(192, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs7sa"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(384, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfb8n"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(576, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72ej3"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(0, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnlwe"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(192, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ret16"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(384, 0, 192, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5dwl"]
+atlas = ExtResource("3_3h7fl")
+region = Rect2(576, 0, 192, 224)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k0cq8"]
 animations = [{
@@ -15,31 +61,58 @@ animations = [{
 }],
 "loop": true,
 "name": &"dead",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ke2sf")
+"texture": SubResource("AtlasTexture_7yp0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neen0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ithi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aimpd")
 }],
 "loop": true,
 "name": &"final",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_3sryp")
+"texture": SubResource("AtlasTexture_phkrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7jce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs7sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfb8n")
 }],
 "loop": true,
 "name": &"mid",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_phyki")
+"texture": SubResource("AtlasTexture_72ej3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnlwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ret16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5dwl")
 }],
 "loop": true,
 "name": &"sapling",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [node name="PlantFrank" type="Area2D"]
