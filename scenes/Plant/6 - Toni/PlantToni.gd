@@ -3,6 +3,8 @@ extends "res://scenes/Plant/Plant.gd"
 var height = 2;
 var width = 3;
 
+var filled_space = 4;
+
 var affected = false;
 
 func _ready():
