@@ -3,8 +3,11 @@ extends Node2D
 @onready var menu = $Menu;
 @onready var default_menu_y = menu.position.y;
 
+@onready var task_panel = $Tasks;
+@onready var task_container = $Tasks/VBoxContainer;
+
 func _ready():
-	
+	task_panel.hide();
 	menu.position.y = default_menu_y + 50;
 	
 	$Menu/PlantButtonStan.disable();
@@ -16,15 +19,16 @@ func _ready():
 func _process(delta):
 #	if $CursorImage.visible == true:
 #		$CursorImage.global_position = get_global_mouse_position();
-	pass
+	update_tasks_status();
 
 func _on_plant_map_level_changed(level_index):
 	
 	$LevelIndex.text = "Level: " + str(level_index + 1);
 	
-	var task_container = $Tasks/VBoxContainer;
+	task_panel.show();
 	var tasks = task_container.get_children();
 	for task in tasks:
+		task.get_node("CheckBox").button_pressed = false;
 		task.hide();
 	
 	# show task
@@ -59,11 +63,36 @@ func _on_plant_map_level_changed(level_index):
 		$Menu/PlantButtonToni.enable();
 
 
+func update_tasks_status():
+	if task_panel.visible == false:
+		return;
+	
+	var tasks = task_container.get_children();
+	for task in tasks:
+		if task.visible == false:
+			continue;
+		
+		var task_fulfilled = false;
+		
+		match task.name:
+			"OneOfEach":
+				task_fulfilled = false;
+			"FillTheBoard":
+				task_fulfilled = false;
+			"TwoPurple":
+				task_fulfilled = false;
+			"TwoRed":
+				task_fulfilled = false;
+		
+		task.get_node("CheckBox").button_pressed = task_fulfilled;
+
 func _on_plant_map_level_done(level_index):
 	print("main: level done", level_index);
 	await fade_out_menu();
 	
 	$PlantMap.remove_all_plants();
+	
+	task_panel.hide();
 	
 	await Game.wait(0.5);
 	

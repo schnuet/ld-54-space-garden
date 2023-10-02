@@ -1745,6 +1745,8 @@ offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
 offset_bottom = 19.0
+focus_mode = 0
+mouse_filter = 1
 
 [node name="Label" type="Label" parent="Tasks/VBoxContainer/OneOfEach"]
 layout_mode = 0
@@ -1788,6 +1790,8 @@ offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
 offset_bottom = 19.0
+focus_mode = 0
+mouse_filter = 2
 
 [node name="TwoRed" type="Control" parent="Tasks/VBoxContainer"]
 visible = false
@@ -1818,6 +1822,8 @@ offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
 offset_bottom = 19.0
+focus_mode = 0
+mouse_filter = 2
 
 [node name="FillTheBoard" type="Control" parent="Tasks/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
@@ -1842,6 +1848,8 @@ offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
 offset_bottom = 19.0
+focus_mode = 0
+mouse_filter = 2
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]
 [connection signal="level_done" from="PlantMap" to="." method="_on_plant_map_level_done"]
