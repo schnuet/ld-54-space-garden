@@ -44,7 +44,7 @@ func affect_plant(plant: Plant):
 	# BHi does not affect anything
 	return;
 
-func _on_state_change(new_state, old_state):
+func _on_state_change(new_state, _old_state):
 	# When we become infected, infect all other BHis
 	if new_state == GrowthState.infected:
 		var plants = await get_all_neighbour_plants();

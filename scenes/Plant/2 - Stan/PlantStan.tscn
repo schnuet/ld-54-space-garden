@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bsnlb78psvkqs"]
 
 [ext_resource type="Script" path="res://scenes/Plant/2 - Stan/PlantStan.gd" id="1_b0cf3"]
-[ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_pfdgy"]
+[ext_resource type="Texture2D" uid="uid://cirs8g7d5e0af" path="res://scenes/Plant/2 - Stan/space_garden_dead_plant_2.png" id="2_2m0rj"]
 [ext_resource type="Texture2D" uid="uid://db4u5hl5nhlhp" path="res://scenes/Plant/2 - Stan/space_garden_final_plant_2_anim.png" id="3_1pc8u"]
 [ext_resource type="Texture2D" uid="uid://dfwlhfijxig7m" path="res://scenes/Plant/2 - Stan/L-auswahl.png" id="4_bre53"]
 [ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="5_cmf8y"]
@@ -58,7 +58,7 @@ region = Rect2(384, 0, 128, 160)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pfdgy")
+"texture": ExtResource("2_2m0rj")
 }],
 "loop": true,
 "name": &"dead",
@@ -123,7 +123,7 @@ script = ExtResource("1_b0cf3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 48)
 sprite_frames = SubResource("SpriteFrames_nb7nw")
-animation = &"sapling"
+animation = &"final"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

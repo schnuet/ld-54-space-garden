@@ -35,6 +35,7 @@ func affect_plant(plant: Plant):
 
 	match plant.type:
 		"BHi":
+			Game.found_infection = true;
 			plant.change_to_state(GrowthState.infected);
 		"Toni":
 			plant.neutralize();

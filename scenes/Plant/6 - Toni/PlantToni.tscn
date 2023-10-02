@@ -1,74 +1,88 @@
-[gd_scene load_steps=5 format=3 uid="uid://dav4il0vncmbj"]
-[gd_scene load_steps=17 format=3 uid="uid://dav4il0vncmbj"]
+[gd_scene load_steps=22 format=3 uid="uid://2jumhlhffjya"]
 
-[ext_resource type="Script" path="res://scenes/Plant/6 - Toni/PlantToni.gd" id="1_jq57u"]
-[ext_resource type="Texture2D" uid="uid://b7f4hbfyisvji" path="res://scenes/Plant/6 - Toni/z-auswahl.png" id="2_3t8og"]
-[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="3_e3hu7"]
-[ext_resource type="Texture2D" uid="uid://dogbisp5ukt7y" path="res://scenes/Plant/6 - Toni/PlaceToni.png" id="2_brdeo"]
-[ext_resource type="Texture2D" uid="uid://c7fbfppeyvhdr" path="res://scenes/Plant/6 - Toni/space_garden_final_plant_6_anim.png" id="2_y602x"]
+[ext_resource type="Script" path="res://scenes/Plant/6 - Toni/PlantToni.gd" id="1_ryat5"]
+[ext_resource type="Texture2D" uid="uid://c7fbfppeyvhdr" path="res://scenes/Plant/6 - Toni/space_garden_final_plant_6_anim.png" id="2_3ulk0"]
+[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="3_bti5t"]
+[ext_resource type="Texture2D" uid="uid://dqxpfot0kjeq1" path="res://assets/wahl/z-auswahl.png" id="3_ptapq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8e43"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy42p"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(0, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl6yi"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uppqa"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(192, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0xthq"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohcua"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(384, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3vtu"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pr5d"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(576, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ow8tq"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbr8d"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(0, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1sei"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo7ru"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(192, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_myp53"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qalpg"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(384, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v03si"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_co3pi"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(576, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_140ke"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v1w5"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(0, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xhrjx"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbhpg"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(192, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_usabw"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cucjv"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(384, 0, 192, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m61ir"]
-atlas = ExtResource("2_y602x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_aooxd"]
+atlas = ExtResource("2_3ulk0")
 region = Rect2(576, 0, 192, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ky0g8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_76exs"]
+atlas = ExtResource("2_3ulk0")
+region = Rect2(0, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wofw"]
+atlas = ExtResource("2_3ulk0")
+region = Rect2(192, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgaxy"]
+atlas = ExtResource("2_3ulk0")
+region = Rect2(384, 0, 192, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n277n"]
+atlas = ExtResource("2_3ulk0")
+region = Rect2(576, 0, 192, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pqlef"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s8e43")
+"texture": SubResource("AtlasTexture_uy42p")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bl6yi")
+"texture": SubResource("AtlasTexture_uppqa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0xthq")
+"texture": SubResource("AtlasTexture_ohcua")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w3vtu")
+"texture": SubResource("AtlasTexture_7pr5d")
 }],
 "loop": true,
 "name": &"final",
@@ -76,16 +90,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ow8tq")
+"texture": SubResource("AtlasTexture_hbr8d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t1sei")
+"texture": SubResource("AtlasTexture_jo7ru")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_myp53")
+"texture": SubResource("AtlasTexture_qalpg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v03si")
+"texture": SubResource("AtlasTexture_co3pi")
 }],
 "loop": true,
 "name": &"mid",
@@ -93,16 +107,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_140ke")
+"texture": SubResource("AtlasTexture_1v1w5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xhrjx")
+"texture": SubResource("AtlasTexture_hbhpg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_usabw")
+"texture": SubResource("AtlasTexture_cucjv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m61ir")
+"texture": SubResource("AtlasTexture_aooxd")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76exs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wofw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgaxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n277n")
 }],
 "loop": true,
 "name": &"sapling",
@@ -111,35 +142,32 @@ animations = [{
 
 [node name="PlantToni" type="Area2D"]
 collision_layer = 5
-collision_mask = 32769
-script = ExtResource("1_jq57u")
+script = ExtResource("1_ryat5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(91, -32)
-sprite_frames = SubResource("SpriteFrames_ky0g8")
-animation = &"final"
+position = Vector2(96, -16)
+sprite_frames = SubResource("SpriteFrames_pqlef")
+animation = &"sapling"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(8, 8, 72, 8, 72, -56, 184, -56, 184, -8, 120, -8, 120, 56, 8, 56)
+visible = false
+polygon = PackedVector2Array(8, 8, 8, 56, 120, 56, 120, -8, 184, -8, 184, -56, 72, -56, 72, 8)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
 collision_layer = 32768
 collision_mask = 4
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 visible = false
-polygon = PackedVector2Array(-48, 112, 176, 112, 176, 48, 240, 48, 240, -112, 16, -112, 16, -48, -48, -48)
+polygon = PackedVector2Array(-40, 16, -40, 48, -40, 48, 16, 48, 16, 96, 104, 96, 104, 48, 168, 48, 168, -16, 232, -16, 232, -48, 168, -48, 168, -96, 80, -96, 80, -48, 8, -48, 8, 16)
 
 [node name="Place" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(108, -16)
-scale = Vector2(1.10714, 1)
-texture = ExtResource("2_3t8og")
+position = Vector2(96, -16)
+texture = ExtResource("3_ptapq")
 
 [node name="Kill_plant" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_e3hu7")
+stream = ExtResource("3_bti5t")
 
 [node name="Plant_delete" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_e3hu7")
+stream = ExtResource("3_bti5t")

@@ -9,8 +9,8 @@ var music_streams = {
 
 func _ready():
 	for stream_name in music_streams:
-		var stream = music_streams.get(stream_name);
-		stream.loop = true;
+		var s = music_streams.get(stream_name);
+		s.loop = true;
 
 func play_music(music_name:String):
 	if current_music_name == music_name:

@@ -19,7 +19,7 @@ func _ready():
 	$Menu/PlantButtonFrank.disable();
 	$Menu/PlantButtonToni.disable();
 	
-func _process(delta):
+func _process(_delta):
 #	if $CursorImage.visible == true:
 #		$CursorImage.global_position = get_global_mouse_position();
 	update_tasks_status();
@@ -101,9 +101,12 @@ func _on_plant_map_level_done(level_index):
 	
 	await show_level_intro(level_index + 1);
 	
-	await $PlantMap.update_level(level_index + 1);
+	if level_index +1 == 6:
+		SceneManager.change_scene("res://screens/CreditsScene.tscn");
 	
-	await fade_in_menu();
+	else:
+		await $PlantMap.update_level(level_index + 1);
+		await fade_in_menu();
 
 
 func show_level_intro(level_index):
@@ -194,6 +197,32 @@ func show_level_intro(level_index):
 				}
 			], self);
 		2:
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"No problem at all!",
+						"What did you try to do again?"
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"THOSE were the easy ones. The next is much more tricky."
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"And much more icky, too!",
+						"What is that?"
+					]
+				}
+			], self);
+		3:
 			if Game.found_infection:
 				await DialogOverlay.do_dialog([
 					{
@@ -202,10 +231,157 @@ func show_level_intro(level_index):
 						"lines": [
 							"That was unexpected! Looks like a super-spreading fungus!"
 						]
+					},
+					{
+						"actor": "prof",
+						"type": "line",
+						"lines": [
+							"It only seems to affect one of the plants though.",
+							"I'll have to see how it reacts to others..."
+						]
+					},
+					{
+						"actor": "prof",
+						"type": "line",
+						"lines": [
+							"What's next?"
+						]
 					}
 				], self);
 			else:
-				pass
+				await DialogOverlay.do_dialog([
+					{
+						"actor": "prof",
+						"type": "line",
+						"lines": [
+							"Okay... that was easy too. What is the deal?"
+						]
+					},
+					{
+						"actor": "chef",
+						"type": "line",
+						"lines": [
+							"I don't understand... It did something when I planted it."
+						]
+					},
+					{
+						"actor": "chef",
+						"type": "line",
+						"lines": [
+							"You must have done it right the first time!"
+						]
+					},
+					{
+						"actor": "prof",
+						"type": "line",
+						"lines": [
+							"Great! That's how I work.",
+							"What's next?"
+						]
+					}
+				], self);
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Don't touch that directly!",
+						"That one is troublesome."
+					]
+				}
+			], self);
+		4:
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Great. This is interesting now."
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Okay, but this one is BIG.",
+						"How are you going to handle that?"
+					]
+				}
+			], self);
+		5:
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"I'm great, am I not?"
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"..."
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"Don't get too cocky, Jeff."
+					]
+				}
+			], self);
+		6:
+			await DialogOverlay.do_dialog([
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Nice warmup! What now?"
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"That's...",
+						"...",
+						"... it."
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"What?"
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"You're done! Congratulations, Jeff, you proved it again."
+					]
+				},
+				{
+					"actor": "prof",
+					"type": "line",
+					"lines": [
+						"Oh!",
+						"Great.",
+						"Well, you know where to find me."
+					]
+				},
+				{
+					"actor": "chef",
+					"type": "line",
+					"lines": [
+						"...",
+						"Every time."
+					]
+				}
+			], self);
 
 
 func fade_out_menu():

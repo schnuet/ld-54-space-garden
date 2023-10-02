@@ -92,7 +92,8 @@ var paused = false;
 
 func _ready():
 	#start the game after a small delay
-	var timer_ = get_tree().create_timer(0.1).connect("timeout", start);
+	get_tree().create_timer(0.1).connect("timeout", start);
+	
 	add_child(timer);
 	timer.one_shot = true;
 	
@@ -104,7 +105,7 @@ func start():
 #	update_level();
 	emit_signal("level_done", -1);
 #
-func _process(delta):
+func _process(_delta):
 		# position build cursor
 	var mouse_tile_pos = get_mouse_tile_pos();
 	var tile_pos = Vector2i(
@@ -166,7 +167,7 @@ func update_level(new_index):
 		var blocker_path = "Blocker" + str(i);
 		if has_node(blocker_path):
 			$Delete_blocker.play();
-			get_node(blocker_path).queue_free();
+			get_node(blocker_path).deactivate();
 	
 	emit_signal("level_changed", current_level_index);
 	
@@ -380,13 +381,12 @@ func is_level_done():
 			return false;
 	return true;
 
-func _on_mouse_collider_input_event(viewport, event, shape_idx):
+func _on_mouse_collider_input_event(_viewport, event, _shape_idx):
 	if paused:
 		return;
 	
 	if event is InputEventMouseButton and event.is_pressed():
-		
-		var blocker = get_tree().get_nodes_in_group("blocker");
+		# var blocker = get_tree().get_nodes_in_group("blocker");
 		
 		
 		var plant = get_plant_at_mouse();

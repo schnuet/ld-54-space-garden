@@ -36,7 +36,3 @@ func affect_plant(plant: Plant):
 	
 	if is_neutralized():
 		return;
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

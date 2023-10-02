@@ -94,7 +94,7 @@ func update_speech(line):
 		var text_length = old_text_length + new_text_length;
 		speech_box.text += text;
 		open_dialgue = true;
-		tween = await get_tree().create_tween();
+		tween = get_tree().create_tween();
 		tween.tween_property(speech_box, "visible_characters", text_length, new_text_length * 0.03).from(old_text_length);
 		await tween.finished;
 		open_dialgue = false;
@@ -108,18 +108,18 @@ func update_speech(line):
 	timer = get_tree().create_timer(len(speech_box.text) * 0.2);
 	await timer.timeout
 
-func show_box(box):
-	if box == null:
+func show_box(box_to_show):
+	if box_to_show == null:
 		return;
-	if box.visible == true:
+	if box_to_show.visible == true:
 		return;
 	$Person_coming_in.play();
 	$Text_bubble.play();
-	box.show();
+	box_to_show.show();
 	
 	#animate potrait
 	var p_final_x = portrait.position.x;
-	if box == box_chef:
+	if box_to_show == box_chef:
 		portrait.position.x -= 40;
 	else:
 		portrait.position.x += 40;
@@ -136,25 +136,25 @@ func show_box(box):
 	
 	await panel_tween.finished
 
-func hide_box(box):
-	if box == null:
+func hide_box(box_to_hide):
+	if box_to_hide == null:
 		return;
-	if box.visible == false:
+	if box_to_hide.visible == false:
 		return;
 	
-	box.hide();
+	box_to_hide.hide();
 
 
 func show_backdrop():
 	backdrop.color = Color.TRANSPARENT;
 	backdrop.show();
-	var tween = get_tree().create_tween();
-	tween.tween_property(backdrop, "color", Color(0, 0, 0, 0.5), 0.5);
+	var _tween = get_tree().create_tween();
+	_tween.tween_property(backdrop, "color", Color(0, 0, 0, 0.5), 0.5);
 	
 func hide_backdrop():
-	var tween = get_tree().create_tween();
-	tween.tween_property(backdrop, "color", Color.TRANSPARENT, 0.5);
-	tween.tween_callback(backdrop.hide);
+	var _tween = get_tree().create_tween();
+	_tween.tween_property(backdrop, "color", Color.TRANSPARENT, 0.5);
+	_tween.tween_callback(backdrop.hide);
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.is_pressed():

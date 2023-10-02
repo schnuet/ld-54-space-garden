@@ -1,14 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlysit4dy8gap"]
+[gd_scene load_steps=6 format=3 uid="uid://dlysit4dy8gap"]
 
 [ext_resource type="Script" path="res://screens/CreditsScene.gd" id="1_r2vpa"]
-[ext_resource type="Theme" uid="uid://dd2xtxl27npqh" path="res://gui/theme.tres" id="2_73fa7"]
 [ext_resource type="LabelSettings" uid="uid://ccrc5drs0nt3v" path="res://gui/titles_1.tres" id="3_tgs3r"]
 [ext_resource type="LabelSettings" uid="uid://ditbrm271efp8" path="res://gui/label_settings_medium.tres" id="4_4kw8k"]
+[ext_resource type="Texture2D" uid="uid://uuv08tg3qcj5" path="res://screens/space_garden_endscreen.png" id="5_2uxsp"]
+[ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://assets/fonts/MunroSmall-wPZw.ttf" id="5_5rgyo"]
 
 [node name="CreditsScene" type="Node2D"]
 script = ExtResource("1_r2vpa")
 
+[node name="SpaceGardenEndscreen" type="Sprite2D" parent="."]
+position = Vector2(327, 184)
+texture = ExtResource("5_2uxsp")
+centered = false
+
 [node name="CodeCredits" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 113)
 
 [node name="Code" type="Label" parent="CodeCredits"]
@@ -29,6 +36,7 @@ text = "Ntimi Schnütgen
 label_settings = ExtResource("4_4kw8k")
 
 [node name="Characters and World" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 2)
 
 [node name="Characters and World" type="Label" parent="Characters and World"]
@@ -49,6 +57,7 @@ text = "Hendrik Schnütgen
 label_settings = ExtResource("4_4kw8k")
 
 [node name="Music" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 234)
 
 [node name="Music" type="Label" parent="Music"]
@@ -69,11 +78,12 @@ text = "Stefan Hofer
 label_settings = ExtResource("4_4kw8k")
 
 [node name="BackButton" type="Button" parent="."]
-offset_left = 1091.0
-offset_top = 28.0
-offset_right = 1252.0
-offset_bottom = 68.0
-theme = ExtResource("2_73fa7")
+offset_left = 862.0
+offset_top = 500.0
+offset_right = 947.0
+offset_bottom = 521.0
+theme_override_fonts/font = ExtResource("5_5rgyo")
+theme_override_font_sizes/font_size = 10
 text = "Back to Start"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

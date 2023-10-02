@@ -15,7 +15,7 @@ func _ready():
 	connect("mouse_entered", _on_mouse_enter);
 	connect("mouse_exited", _on_mouse_exit);
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if disabled:
 		return;
 		

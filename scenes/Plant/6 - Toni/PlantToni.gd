@@ -46,7 +46,3 @@ func reaffect_plant(plant: Plant):
 	
 	if plant.type == self.type:
 		plant.nerf();
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

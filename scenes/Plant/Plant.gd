@@ -38,7 +38,7 @@ func _ready():
 #	add_child(grow_timer);
 #	grow_timer.start();
 
-func _process(delta):
+func _process(_delta):
 	var max_frame = sprite.sprite_frames.get_frame_count(sprite.animation);
 	var f = min(max_frame, Game.anim_frame);
 	
@@ -109,7 +109,7 @@ func deneutralize():
 func is_neutralized() -> bool:
 	return neutralize_count > 0;
 
-func affect_plant(plant: Plant):
+func affect_plant(_plant: Plant):
 	pass
 
 #func transform_to_plant(plant: Plant):
@@ -118,7 +118,7 @@ func affect_plant(plant: Plant):
 #	queue_free();
 #	map.create_plant(plant.type, current_pos);
 
-func _on_state_change(new_state: GrowthState, old_state: GrowthState):
+func _on_state_change(_new_state: GrowthState, _old_state: GrowthState):
 	pass
 
 func change_to_state(new_state: GrowthState):
@@ -181,7 +181,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	mouse_inside = false;
 
-func _handle_click(mouse_position: Vector2):
+func _handle_click(_mouse_position: Vector2):
 	print("plant click ", self);
 	
 	#if growth_state == GrowthState.dead:

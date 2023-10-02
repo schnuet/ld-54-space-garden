@@ -141,8 +141,8 @@ visible = false
 polygon = PackedVector2Array(16, 16, 16, -48, 80, -48, 79.6891, -112, 111.738, -112, 112, -48, 176, -48, 176, 16, 240, 15.8282, 240, 49.2013, 176, 48, 176, 112, 112, 112, 112.532, 176, 81.5431, 176, 80, 112, 16, 112, 16, 48, -48, 48.9364, -48, 16.0931)
 
 [node name="Place" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(96, 32)
-scale = Vector2(1, 1)
 texture = ExtResource("4_hd5ha")
 
 [node name="Kill_plant" type="AudioStreamPlayer" parent="."]
