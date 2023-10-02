@@ -14,6 +14,8 @@ enum PlantType {
 
 var cursor_mode = "default";
 
+var found_infection = false;
+
 func set_cursor_mode(mode):
 	# disable
 	if mode == cursor_mode:
@@ -25,3 +27,7 @@ func set_cursor_mode(mode):
 func wait(seconds):
 	return await get_tree().create_timer(seconds).timeout;
 
+
+func init_vars():
+	cursor_mode = "default";
+	found_infection = false;

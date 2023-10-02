@@ -7,6 +7,7 @@ extends Node2D
 @onready var task_container = $Tasks/VBoxContainer;
 
 func _ready():
+	Game.init_vars();
 	task_panel.hide();
 	menu.position.y = default_menu_y + 50;
 	
@@ -190,6 +191,19 @@ func show_level_intro(level_index):
 					]
 				}
 			], self);
+		2:
+			if Game.found_infection:
+				await DialogOverlay.do_dialog([
+					{
+						"actor": "prof",
+						"type": "line",
+						"lines": [
+							"That was unexpected! Looks like a super-spreading fungus!"
+						]
+					}
+				], self);
+			else:
+				pass
 
 
 func fade_out_menu():
