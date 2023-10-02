@@ -1,21 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://dav4il0vncmbj"]
+[gd_scene load_steps=5 format=3 uid="uid://dav4il0vncmbj"]
 
 [ext_resource type="Script" path="res://scenes/Plant/6 - Toni/PlantToni.gd" id="1_jq57u"]
+[ext_resource type="Texture2D" uid="uid://dt2bkx8i626mn" path="res://scenes/Plant/6 - Toni/space_garden_final_plant_6.png" id="2_0ltyf"]
 [ext_resource type="Texture2D" uid="uid://dogbisp5ukt7y" path="res://scenes/Plant/6 - Toni/PlaceToni.png" id="2_brdeo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky0g8"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ltyf")
+}],
 "loop": true,
 "name": &"final",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ltyf")
+}],
 "loop": true,
 "name": &"mid",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ltyf")
+}],
 "loop": true,
 "name": &"sapling",
 "speed": 5.0
@@ -27,11 +37,11 @@ collision_mask = 32769
 script = ExtResource("1_jq57u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(92, -29)
 sprite_frames = SubResource("SpriteFrames_ky0g8")
-animation = &"mid"
+animation = &"sapling"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(8, 8, 72, 8, 72, -56, 184, -56, 184, -8, 120, -8, 120, 56, 8, 56)
 
 [node name="BuildCollisionArea" type="Area2D" parent="."]
