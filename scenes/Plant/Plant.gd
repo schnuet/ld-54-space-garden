@@ -135,10 +135,10 @@ func _on_plant():
 	
 	if get_tile_position().y == 0:
 #		$AnimatedSprite2D.self_modulate = Color(180, 180, 180);
-		$AnimatedSprite2D.self_modulate = Color(0.5, 0.5, 0.5);
+		$AnimatedSprite2D.self_modulate = Color(0.65, 0.65, 0.65);
 	elif get_tile_position().y == 1:
 #		$AnimatedSprite2D.self_modulate = Color(220, 220, 220);
-		$AnimatedSprite2D.self_modulate = Color(0.75, 0.75, 0.75);
+		$AnimatedSprite2D.self_modulate = Color(0.80, 0.80, 0.80);
 	else:
 		$AnimatedSprite2D.self_modulate = Color.WHITE;
 

@@ -3,6 +3,8 @@ extends "res://scenes/Plant/Plant.gd"
 var height = 2;
 var width = 2;
 
+var affected = false;
+
 func _ready():
 	super._ready();
 	grow_speed = 10;
@@ -20,7 +22,10 @@ func _on_plant():
 		plant.affect_plant(self);
 
 	if is_neutralized():
+		affected = true;
 		return;
+		
+	affected = true;
 
 	for plant in plants:
 		if plant == self:
