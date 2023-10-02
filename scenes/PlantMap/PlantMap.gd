@@ -3,6 +3,7 @@ extends Node2D
 
 # 4*6
 signal level_changed(level_index);
+signal level_done(level_index);
 
 @onready var plants_group:Node2D = $Plants;
 
@@ -84,8 +85,10 @@ func _ready():
 
 func start():
 	print("start");
-	emit_signal("level_changed", 0);
-
+#	current_level_index = -1;
+#	update_level();
+	emit_signal("level_done", -1);
+#
 func _process(delta):
 		# position build cursor
 	var mouse_tile_pos = get_mouse_tile_pos();
@@ -123,23 +126,32 @@ func _process(delta):
 
 	$BuildCursor.position = tile_pos * tile_size;
 	
-	if is_level_done():
-		_on_level_done();
+	if not paused:
+		if is_level_done():
+			_on_level_done();
 
 
 func _on_level_done():
 	paused = true;
-	
-	update_level();
+	print("plantmap: level done");
+	emit_signal("level_done", current_level_index);
+
+
+func remove_all_plants():
+	var plants = $Plants.get_children();
+	for plant in plants:
+		plant.queue_free();
+
+func update_level(new_index):
 	paused = false;
-
-
-func update_level():
-	current_level_index += 1;
+	current_level_index = new_index;
+	
+	for i in range(current_level_index):
+		var blocker_path = "Blocker" + str(i);
+		if has_node(blocker_path):
+			get_node(blocker_path).queue_free();
+	
 	emit_signal("level_changed", current_level_index);
-	var blocker_path = "Blocker" + str(current_level_index);
-	if has_node(blocker_path):
-		get_node(blocker_path).queue_free();
 	
 	
 func get_new_plant(type) -> Plant:

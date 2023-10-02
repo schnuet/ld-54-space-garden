@@ -26,7 +26,9 @@ func do_dialog(lines: Array, scene_to_pause: Node = null):
 		scene_to_pause.process_mode = Node.PROCESS_MODE_DISABLED;
 	
 	show_backdrop();
+	
 	await get_tree().create_timer(0.75).timeout;
+	
 	skip = false;
 	$SkipButton.show();
 	
