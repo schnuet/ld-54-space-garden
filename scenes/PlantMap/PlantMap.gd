@@ -146,7 +146,7 @@ func update_level(new_index):
 	paused = false;
 	current_level_index = new_index;
 	
-	for i in range(current_level_index):
+	for i in range(current_level_index +1):
 		var blocker_path = "Blocker" + str(i);
 		if has_node(blocker_path):
 			get_node(blocker_path).queue_free();
@@ -208,7 +208,7 @@ func get_mouse_tile_pos():
 #	var map_height = 3 * tile_size;
 #	var scale_strength = local_mouse_pos.y;
 	var vector = Vector2i(floor(local_mouse_pos / tile_size));
-	print(vector);
+	#print(vector);
 	return vector;
 	
 	
