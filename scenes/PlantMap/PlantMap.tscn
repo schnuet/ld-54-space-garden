@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://d0t1lcxkscwua"]
+[gd_scene load_steps=73 format=3 uid="uid://d0t1lcxkscwua"]
 
 [ext_resource type="Texture2D" uid="uid://c7fxxyieryuut" path="res://scenes/PlantMap/space_garden_floor_tile_1.png" id="1_cs77c"]
 [ext_resource type="Texture2D" uid="uid://ckpt6wt1x8byq" path="res://scenes/PlantMap/bg_placeholder.png" id="1_d1pui"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://rrg88dju2e1i" path="res://scenes/PlantButton/button_push.wav" id="11_0a27o"]
 [ext_resource type="Texture2D" uid="uid://d2mibajodgpkk" path="res://scenes/PlantMap/blockers/space_garden_blockade_5_anim.png" id="11_deqhc"]
 [ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="12_jajhl"]
+[ext_resource type="AudioStream" uid="uid://d2puwtcsehsst" path="res://assets/sounds/error.wav" id="18_g1ufl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hem13"]
 texture = ExtResource("1_cs77c")
@@ -582,6 +583,7 @@ stream = ExtResource("9_v4gpu")
 
 [node name="Task_succeeded" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_82kqw")
+volume_db = -10.146
 
 [node name="Delete_blocker" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_3cg6u")
@@ -594,5 +596,9 @@ stream = ExtResource("12_jajhl")
 
 [node name="Plant_delete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_jajhl")
+
+[node name="SndError" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_g1ufl")
+volume_db = -17.0
 
 [connection signal="input_event" from="MouseCollider" to="." method="_on_mouse_collider_input_event"]

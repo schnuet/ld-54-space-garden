@@ -401,6 +401,9 @@ func _on_mouse_collider_input_event(_viewport, event, _shape_idx):
 		
 		if (tile_id != -1):
 			if is_cursor_plant_colliding():
+				$SndError.play();
+				print("can't place");
 				return;
 			$Plant_place.play();
 			create_plant(Game.cursor_mode, tile_pos * tile_size);
+

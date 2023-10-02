@@ -21,16 +21,16 @@ func fade_to(music_name):
 	
 	var player = get_node(music_name);
 	
-	var time = 3;
+	var time = 0.5;
 	
 	var tween = get_tree().create_tween();
 	
 	if current_player:
 		# fade out current player
-		tween.tween_property(current_player, "volume_db", -60, time * 2);
+		tween.tween_property(current_player, "volume_db", -40, time);
 	
 	# fade in
-	tween.tween_property(player, "volume_db", -2, time);
+	tween.tween_property(player, "volume_db", -20, time);
 	
 	current_player = player;
 	

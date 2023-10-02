@@ -87,6 +87,7 @@ func update_speech(line):
 			return;
 			
 		print("next line!");
+		$Dialog.playing = true;
 		var old_text_length = len(speech_box.text);
 		if old_text_length > 0:
 			text = " " + text;
@@ -113,7 +114,6 @@ func show_box(box_to_show):
 		return;
 	if box_to_show.visible == true:
 		return;
-	$Person_coming_in.play();
 	$Text_bubble.play();
 	box_to_show.show();
 	
@@ -177,4 +177,5 @@ func _on_skip_button_pressed():
 
 
 func _on_dialog_finished():
-	$Dialog.play();
+	if open_dialgue:
+		$Dialog.play();

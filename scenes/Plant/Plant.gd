@@ -42,7 +42,6 @@ func _process(_delta):
 	var max_frame = sprite.sprite_frames.get_frame_count(sprite.animation);
 	var f = min(max_frame, Game.anim_frame);
 	
-	print("update frame", Game.anim_frame, f, max_frame);
 	sprite.frame = f;
 
 func set_state(new_state: GrowthState):

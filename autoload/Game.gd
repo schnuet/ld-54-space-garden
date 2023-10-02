@@ -17,18 +17,14 @@ enum PlantType {
 var cursor_mode = "default";
 
 var found_infection = false;
-@onready var timer = Timer.new();
+@onready var frame_timer = Timer.new();
 
 func _ready():
-	add_child(timer);
-	timer.start(0.5);
-	timer.connect("timeout", update_anim);
+	add_child(frame_timer);
+	frame_timer.start(0.5681);
+	frame_timer.connect("timeout", update_anim);
 
 func set_cursor_mode(mode):
-	# disable
-	if mode == cursor_mode:
-		mode = "default";
-
 	cursor_mode = mode;
 	emit_signal("cursor_mode_changed", mode);
 

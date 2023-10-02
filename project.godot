@@ -30,6 +30,7 @@ window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/scale=2.0
 mouse_cursor/custom_image="res://assets/space_garden_cursor.png"
+mouse_cursor/tooltip_position_offset=Vector2(-10, -10)
 
 [editor_plugins]
 

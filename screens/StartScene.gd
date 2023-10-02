@@ -9,8 +9,6 @@ func _ready():
 	MusicPlayer.play_music("main");
 	logo.modulate = Color.TRANSPARENT;
 	
-	$AnimatedSprite2D.play();
-	
 	var timer = get_tree().create_timer(1);
 	await timer.timeout;
 	fade_in_logo();
@@ -20,6 +18,13 @@ func _ready():
 	
 	$StartButton.show();
 	$CreditsButton.show();
+
+func _process(_delta):
+	var max_frame = 7;
+	var f = min(max_frame, Game.anim_frame);
+	print(f);
+	
+	$AnimatedSprite2D.frame = f;
 	
 func fade_in_logo():
 	var tween = create_tween().tween_property(logo, "modulate", Color.WHITE, 2);
