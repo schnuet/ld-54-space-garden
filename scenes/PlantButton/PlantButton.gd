@@ -22,6 +22,7 @@ func _on_input_event(viewport, event, shape_idx):
 	# CLICK HANDLER!
 	if event is InputEventMouseButton and event.is_pressed():
 		get_viewport().set_input_as_handled();
+		$Button_push.play();
 		Game.set_cursor_mode(plant_type);
 
 func _on_mouse_enter():

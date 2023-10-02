@@ -6,6 +6,8 @@ extends Node2D
 @onready var task_panel = $Tasks;
 @onready var task_container = $Tasks/VBoxContainer;
 
+
+
 func _ready():
 	Game.init_vars();
 	task_panel.hide();
@@ -214,6 +216,11 @@ func fade_out_menu():
 
 func fade_in_menu():
 	var tween = get_tree().create_tween();
+	$Console_up.play();
 	tween.tween_property(menu, "position:y", default_menu_y, 1);
 	tween.set_ease(Tween.EASE_OUT);
 	await tween.finished;
+
+
+func _on_space_station_finished():
+	$SpaceStation.play(0); # Replace with function body.

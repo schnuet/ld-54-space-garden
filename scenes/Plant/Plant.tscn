@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bubc88ym6n0x0"]
+[gd_scene load_steps=3 format=3 uid="uid://bubc88ym6n0x0"]
 
 [ext_resource type="Script" path="res://scenes/Plant/Plant.gd" id="1_bqb1y"]
+[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="2_wube8"]
 
 [node name="Plant" type="Area2D" groups=["plant"]]
 script = ExtResource("1_bqb1y")
+
+[node name="Kill_plant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wube8")
+
+[node name="Plant_delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wube8")

@@ -149,6 +149,7 @@ func _process(delta):
 func _on_level_done():
 	paused = true;
 	print("plantmap: level done");
+	$Task_succeeded.play();
 	emit_signal("level_done", current_level_index);
 
 
@@ -164,6 +165,7 @@ func update_level(new_index):
 	for i in range(current_level_index +1):
 		var blocker_path = "Blocker" + str(i);
 		if has_node(blocker_path):
+			$Delete_blocker.play();
 			get_node(blocker_path).queue_free();
 	
 	emit_signal("level_changed", current_level_index);
@@ -400,5 +402,5 @@ func _on_mouse_collider_input_event(viewport, event, shape_idx):
 		if (tile_id != -1):
 			if is_cursor_plant_colliding():
 				return;
-			
+			$Plant_place.play();
 			create_plant(Game.cursor_mode, tile_pos * tile_size);

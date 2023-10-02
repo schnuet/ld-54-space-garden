@@ -38,6 +38,7 @@ func affect_plant(plant: Plant):
 		
 	if growth_state == GrowthState.infected:
 		if plant.type == "BHi":
+			$Infect.play();
 			plant.change_to_state(GrowthState.infected);
 	
 	# BHi does not affect anything

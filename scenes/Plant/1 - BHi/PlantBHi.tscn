@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://315nidr5ptjq"]
+[gd_scene load_steps=22 format=3 uid="uid://315nidr5ptjq"]
 
 [ext_resource type="Script" path="res://scenes/Plant/1 - BHi/PlantBHi.gd" id="1_e1m12"]
 [ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_uitf2"]
 [ext_resource type="Texture2D" uid="uid://ct5uqsmgdul3n" path="res://scenes/Plant/1 - BHi/space_garden_infected_plant_1.png" id="3_2avsm"]
 [ext_resource type="Texture2D" uid="uid://c1bjg3mmwo625" path="res://scenes/Plant/1 - BHi/space_garden_final_plant_1_anim.png" id="3_3r6be"]
-[ext_resource type="Texture2D" uid="uid://tjkupnnhrwqo" path="res://scenes/Plant/1 - BHi/PlaceBHi.png" id="7_pwf1w"]
+[ext_resource type="Texture2D" uid="uid://dstdpkwi3apvi" path="res://scenes/Plant/1 - BHi/1x1-auswahl.png" id="5_usdg0"]
+[ext_resource type="AudioStream" uid="uid://byohpxaef5oa4" path="res://scenes/Plant/1 - BHi/infected.wav" id="6_7j0qm"]
+[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="7_6kej0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l7152"]
 atlas = ExtResource("3_3r6be")
@@ -155,5 +157,14 @@ polygon = PackedVector2Array(16, -48, 48, -48, 48, 16, 112, 16, 112, 48, 48, 48,
 [node name="Place" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(32, 32)
-scale = Vector2(4, 4)
-texture = ExtResource("7_pwf1w")
+scale = Vector2(1, 0.989583)
+texture = ExtResource("5_usdg0")
+
+[node name="Infect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7j0qm")
+
+[node name="Kill_plant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6kej0")
+
+[node name="Plant_delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6kej0")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://ba7ah16vc00j5"]
+[gd_scene load_steps=19 format=3 uid="uid://ba7ah16vc00j5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/5 - Frank/PlantFrank.gd" id="1_7a53u"]
 [ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_1ifuc"]
 [ext_resource type="Texture2D" uid="uid://36qp4qln1p57" path="res://scenes/Plant/5 - Frank/space_garden_final_plant_5_anim.png" id="3_3h7fl"]
-[ext_resource type="Texture2D" uid="uid://c6jii04vx7qta" path="res://scenes/Plant/5 - Frank/PlaceFrank.png" id="6_gpnex"]
+[ext_resource type="Texture2D" uid="uid://bccpdhwv0erh3" path="res://scenes/Plant/5 - Frank/plus-auswahl.png" id="4_hd5ha"]
+[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="5_ili1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7yp0h"]
 atlas = ExtResource("3_3h7fl")
@@ -142,5 +143,11 @@ polygon = PackedVector2Array(16, 16, 16, -48, 80, -48, 79.6891, -112, 111.738, -
 [node name="Place" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(96, 32)
-scale = Vector2(4, 4)
-texture = ExtResource("6_gpnex")
+scale = Vector2(1, 1)
+texture = ExtResource("4_hd5ha")
+
+[node name="Kill_plant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ili1g")
+
+[node name="Plant_delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ili1g")

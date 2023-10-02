@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dogbisp5ukt7y"
-path="res://.godot/imported/PlaceToni.png-c37c2621c2b90756506b101818f0fb7a.ctex"
+uid="uid://c81jy356xcc2a"
+path="res://.godot/imported/1x2-auswahl.png-bddfb24c4e4c49cc13ad7b7209e6d8d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Plant/6 - Toni/PlaceToni.png"
-dest_files=["res://.godot/imported/PlaceToni.png-c37c2621c2b90756506b101818f0fb7a.ctex"]
+source_file="res://scenes/Plant/4 - Assi/1x2-auswahl.png"
+dest_files=["res://.godot/imported/1x2-auswahl.png-bddfb24c4e4c49cc13ad7b7209e6d8d6.ctex"]
 
 [params]
 

@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca7xwg506jlp5"]
+[gd_scene load_steps=11 format=3 uid="uid://ca7xwg506jlp5"]
 
 [ext_resource type="Script" path="res://scenes/Plant/4 - Assi/PlantAssi.gd" id="1_ei08w"]
 [ext_resource type="Texture2D" uid="uid://ds6rb15wv6kw2" path="res://scenes/Plant/4 - Assi/space_garden_final_plant_4.png" id="2_l4kuy"]
 [ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_wwr32"]
 [ext_resource type="Texture2D" uid="uid://bo5dqm5qk16j5" path="res://scenes/Plant/4 - Assi/space_garden_mid_plant_4.png" id="3_54kvy"]
 [ext_resource type="Texture2D" uid="uid://chvig7s4h61t0" path="res://scenes/Plant/4 - Assi/space_garden_sapling_plant_4.png" id="4_t5okk"]
-[ext_resource type="Texture2D" uid="uid://bvvpcr78d6da3" path="res://scenes/Plant/4 - Assi/PlaceAssi.png" id="6_x0gxq"]
+[ext_resource type="Texture2D" uid="uid://c81jy356xcc2a" path="res://scenes/Plant/4 - Assi/1x2-auswahl.png" id="6_rgggk"]
+[ext_resource type="AudioStream" uid="uid://dg1dqy8f2sr0c" path="res://scenes/Plant/pflanze_loeschen.wav" id="7_tvwsf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qwwtj"]
 animations = [{
@@ -76,7 +77,11 @@ shape = SubResource("RectangleShape2D_v1lec")
 debug_color = Color(0.74902, 0.0823529, 0.282353, 0.419608)
 
 [node name="Place" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(64, 32)
-scale = Vector2(4, 2)
-texture = ExtResource("6_x0gxq")
+position = Vector2(48, 48)
+texture = ExtResource("6_rgggk")
+
+[node name="Kill_plant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tvwsf")
+
+[node name="Plant_delete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tvwsf")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhykrt738thkh"
-path="res://.godot/imported/PlaceStan.png-6b6d10371bc207759f5b272d76176548.ctex"
+uid="uid://b7f4hbfyisvji"
+path="res://.godot/imported/z-auswahl.png-4fa1526222ad9f4320a7d0b46a9b6c0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Plant/2 - Stan/PlaceStan.png"
-dest_files=["res://.godot/imported/PlaceStan.png-6b6d10371bc207759f5b272d76176548.ctex"]
+source_file="res://scenes/Plant/6 - Toni/z-auswahl.png"
+dest_files=["res://.godot/imported/z-auswahl.png-4fa1526222ad9f4320a7d0b46a9b6c0d.ctex"]
 
 [params]
 

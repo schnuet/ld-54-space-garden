@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr3xssk1bdp5u"]
+[gd_scene load_steps=8 format=3 uid="uid://cr3xssk1bdp5u"]
 
 [ext_resource type="Script" path="res://autoload/DialogOverlay/DialogOverlay.gd" id="1_r3xnr"]
 [ext_resource type="Texture2D" uid="uid://vx504hxoffk6" path="res://autoload/DialogOverlay/portrait_2.png" id="2_8q5f7"]
 [ext_resource type="Texture2D" uid="uid://tlhush64wg5d" path="res://autoload/DialogOverlay/portrait_1.png" id="2_lashl"]
+[ext_resource type="AudioStream" uid="uid://t0r27aioflcr" path="res://autoload/DialogOverlay/dialog.wav" id="4_4d7va"]
+[ext_resource type="AudioStream" uid="uid://hmidyqe0mm2j" path="res://autoload/DialogOverlay/text-bubble-geht-auf.wav" id="5_11emc"]
+[ext_resource type="AudioStream" uid="uid://cfnmtqxe63jvc" path="res://scenes/PlantMap/Audio/whoosh.wav" id="6_6n6qb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssckm"]
 animations = [{
@@ -97,4 +100,14 @@ offset_right = 623.0
 offset_bottom = 48.0
 text = "Skip"
 
+[node name="Dialog" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4d7va")
+
+[node name="Text_bubble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_11emc")
+
+[node name="Person_coming_in" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6n6qb")
+
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="finished" from="Dialog" to="." method="_on_dialog_finished"]

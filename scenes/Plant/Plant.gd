@@ -5,6 +5,7 @@ var type = "BHi";
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D; # get the sprite
 
+
 enum GrowthState {
 	sapling,
 	mid,
@@ -75,11 +76,13 @@ func get_all_neighbour_plants() -> Array[Plant]:
 func kill():
 	print("KILL ", type);
 	if growth_state != GrowthState.dead:
+		$Kill_plant.play()
 		change_to_state(GrowthState.dead);
 	
 	
 func harvest():
 	print("DELETE ", type);
+	$Plant_delete.play();
 	#if growth_state == GrowthState.dead:
 	queue_free();
 

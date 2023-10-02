@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tjkupnnhrwqo"
-path="res://.godot/imported/PlaceBHi.png-40c40cd9ff593ed3a41b8e99ebbc54d2.ctex"
+uid="uid://dfwlhfijxig7m"
+path="res://.godot/imported/L-auswahl.png-ab6155226d191532fab2ea440988431c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Plant/1 - BHi/PlaceBHi.png"
-dest_files=["res://.godot/imported/PlaceBHi.png-40c40cd9ff593ed3a41b8e99ebbc54d2.ctex"]
+source_file="res://scenes/Plant/2 - Stan/L-auswahl.png"
+dest_files=["res://.godot/imported/L-auswahl.png-ab6155226d191532fab2ea440988431c.ctex"]
 
 [params]
 

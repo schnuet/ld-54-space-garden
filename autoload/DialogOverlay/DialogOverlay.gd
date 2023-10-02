@@ -12,6 +12,7 @@ var tween = null;
 
 @onready var backdrop = $Backdrop;
 
+var open_dialgue = false;
 var skip = false;
 
 func _ready():
@@ -92,9 +93,11 @@ func update_speech(line):
 		var new_text_length = len(text);
 		var text_length = old_text_length + new_text_length;
 		speech_box.text += text;
+		open_dialgue = true;
 		tween = await get_tree().create_tween();
 		tween.tween_property(speech_box, "visible_characters", text_length, new_text_length * 0.03).from(old_text_length);
 		await tween.finished;
+		open_dialgue = false;
 		speech_box.visible_characters = text_length;
 		timer = get_tree().create_timer(0.3)
 		await timer.timeout;
@@ -110,7 +113,8 @@ func show_box(box):
 		return;
 	if box.visible == true:
 		return;
-	
+	$Person_coming_in.play();
+	$Text_bubble.play();
 	box.show();
 	
 	#animate potrait
@@ -170,3 +174,7 @@ func _on_skip_button_pressed():
 	elif tween != null and tween.is_running():
 		tween.stop();
 		tween.emit_signal("finished");
+
+
+func _on_dialog_finished():
+	$Dialog.play();
