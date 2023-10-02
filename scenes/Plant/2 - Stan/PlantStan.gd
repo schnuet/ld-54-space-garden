@@ -1,10 +1,5 @@
 extends "res://scenes/Plant/Plant.gd"
 
-var height = 2;
-var width = 2;
-
-var filled_space = 3;
-
 var affected = false;
 
 func _ready():

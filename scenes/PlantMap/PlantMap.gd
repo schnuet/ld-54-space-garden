@@ -15,6 +15,8 @@ signal level_done(level_index);
 @onready var PlantFrank = preload("res://scenes/Plant/5 - Frank/PlantFrank.tscn");
 @onready var PlantToni = preload("res://scenes/Plant/6 - Toni/PlantToni.tscn");
 
+@onready var timer = Timer.new();
+
 @onready var plants_by_name = {
 	"BHi": PlantBHi,
 	"Assi": PlantAssi,
@@ -25,6 +27,7 @@ signal level_done(level_index);
 };
 
 var tile_size = 64;
+
 
 var levels = [
 	{
@@ -91,7 +94,9 @@ var paused = false;
 
 func _ready():
 	#start the game after a small delay
-	var timer = get_tree().create_timer(0.1).connect("timeout", start);
+	var timer_ = get_tree().create_timer(0.1).connect("timeout", start);
+	add_child(timer);
+	timer.one_shot = true;
 	
 	Game.connect("cursor_mode_changed", _on_cursor_mode_change);
 
@@ -178,6 +183,9 @@ func get_new_plant(type) -> Plant:
 	return plant;
 
 func create_plant(type, global_plant_position):
+	
+	timer.start(0.1);
+	
 	var new_plant = get_new_plant(type);
 	if new_plant != null:
 		new_plant.global_position = global_plant_position;
@@ -281,14 +289,20 @@ func get_grown_plant_count():
 		if plant.growth_state != plant.GrowthState.final:
 			continue;
 
+		if plant.growth_state == plant.GrowthState.infected:
+			continue;
+			
 		plant_count[plant.type] += 1;
-	
+	#print(plant_count);
 	return plant_count;
 
 
 func get_current_level():
 	return levels[current_level_index];
 
+func is_two_of(type) -> bool:
+	var compare = get_grown_plant_count();
+	return compare[type] == 2;
 
 func is_one_of_each() -> bool:
 	var active_plants = get_grown_plant_count();
@@ -304,24 +318,40 @@ func is_one_of_each() -> bool:
 	
 	return feedback;
 	
-#func is_board_filled() -> bool:
-#	var active_plants = get_grown_plant_count();
-#	var buff = 0;
-#
-#	for type in active_plants:
-#		buff += active_plants[type] * spaces[type];
-#
-#	match current_level_index:
-#		0: if buff == 
-#		1:
-#		2:
-#		3:
-#		4:
-#		5:
-#	return false;
+func is_board_filled() -> bool:
+	var active_plants = get_grown_plant_count();
+	var buff = 0;
+
+	for type in active_plants:
+		buff += active_plants[type] * spaces[type];
+
+	match current_level_index:
+		0: 
+			if buff == 3:
+				return true;
+		1:
+			if buff == 6:
+				return true;
+		2:
+			if buff == 9:
+				return true;
+		3:
+			if buff == 13:
+				return true;
+		4:
+			if buff == 19:
+				return true;
+		5:
+			if buff == 24:
+				return true;
+	return false;
 	
 
 func is_level_done():
+	print(timer.time_left);
+	if timer.time_left:
+		return false;
+	
 	var level = get_current_level();
 	
 	if level == null:
@@ -329,7 +359,6 @@ func is_level_done():
 	
 	var counts = get_grown_plant_count();
 	var plants = get_all_plants();
-	
 	
 	for plant in plants:
 		if not(plant.affected):
@@ -345,7 +374,6 @@ func is_level_done():
 			return false;
 		if counts[type] < required_plant_count:
 			return false;
-	
 	return true;
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
