@@ -1,4 +1,4 @@
-[gd_scene load_steps=235 format=3 uid="uid://fbk1capf22s7"]
+[gd_scene load_steps=237 format=3 uid="uid://fbk1capf22s7"]
 
 [ext_resource type="PackedScene" uid="uid://d0t1lcxkscwua" path="res://scenes/PlantMap/PlantMap.tscn" id="1_7vaon"]
 [ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_ggjwf"]
@@ -8,10 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bj0y8kr8fpy1y" path="res://scenes/PlantMap/window/space_window_background_1.png" id="4_fmrr5"]
 [ext_resource type="Texture2D" uid="uid://bxkad7fexhg4d" path="res://scenes/PlantMap/window/space_window_background_2.png" id="5_0kcx8"]
 [ext_resource type="Texture2D" uid="uid://cb6m8nt6tbny1" path="res://scenes/PlantMap/window/space_window_background_3.png" id="6_j386a"]
-[ext_resource type="Texture2D" uid="uid://5jjhndivuet6" path="res://scenes/MainScene/space_garden_spielelayout.png" id="7_gu58d"]
+[ext_resource type="Texture2D" uid="uid://ck46cw7dgo1qa" path="res://scenes/space_garden_spielelayout.png" id="7_k4my8"]
+[ext_resource type="Texture2D" uid="uid://d0g3xefytabac" path="res://scenes/space_garden_table-light-effectt_back.png" id="8_uww2s"]
 [ext_resource type="Texture2D" uid="uid://r766y3rtegbm" path="res://scenes/PlantButton/button_standard_.png" id="9_r47t7"]
 [ext_resource type="Texture2D" uid="uid://cwr26ejqi4uj1" path="res://scenes/PlantButton/button_hover_.png" id="10_oghla"]
-[ext_resource type="Texture2D" uid="uid://djgxijeynqaqb" path="res://scenes/MainScene/space_garden_table-light-effectt.png" id="12_tu3v7"]
+[ext_resource type="Texture2D" uid="uid://dh6aj7m7txiih" path="res://scenes/space_garden_console.png" id="10_psqy7"]
+[ext_resource type="Texture2D" uid="uid://baa1r35y3iubo" path="res://scenes/space_garden_table-light-effectt_front.png" id="14_8ly7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kvqp"]
 atlas = ExtResource("9_r47t7")
@@ -1635,18 +1637,26 @@ script = ExtResource("3_5xpoo")
 speed = 7.0
 
 [node name="SpaceGardenSpielelayout" type="Sprite2D" parent="."]
-texture = ExtResource("7_gu58d")
+texture = ExtResource("7_k4my8")
 centered = false
 
 [node name="LevelIndex" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="SpaceGardenTable-light-effectt" type="Sprite2D" parent="."]
+texture = ExtResource("8_uww2s")
+centered = false
+
 [node name="PlantMap" parent="." instance=ExtResource("1_7vaon")]
 position = Vector2(64, 96)
 
 [node name="Menu" type="Node2D" parent="."]
 position = Vector2(0, 13)
+
+[node name="Console" type="Sprite2D" parent="Menu"]
+position = Vector2(320, 167)
+texture = ExtResource("10_psqy7")
 
 [node name="PlantButtonBHi" parent="Menu" instance=ExtResource("2_bm6uj")]
 position = Vector2(177, 328)
@@ -1701,9 +1711,9 @@ sprite_frames = SubResource("SpriteFrames_kw3fg")
 visible = false
 modulate = Color(1, 1, 1, 0.482353)
 
-[node name="SpaceGardenTable-light-effectt" type="Sprite2D" parent="."]
-texture = ExtResource("12_tu3v7")
-centered = false
+[node name="SpaceGardenTable-light-front" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("14_8ly7u")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 521.0
