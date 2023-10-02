@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://315nidr5ptjq"]
+[gd_scene load_steps=20 format=3 uid="uid://315nidr5ptjq"]
 
 [ext_resource type="Script" path="res://scenes/Plant/1 - BHi/PlantBHi.gd" id="1_e1m12"]
 [ext_resource type="Texture2D" uid="uid://86vwx30qg1p7" path="res://scenes/Plant/1 - BHi/deadX.png" id="2_uitf2"]
@@ -127,9 +127,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntare"]
 size = Vector2(48, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjvlp"]
-size = Vector2(160, 160)
-
 [node name="PlantBHi" type="Area2D"]
 collision_layer = 5
 script = ExtResource("1_e1m12")
@@ -151,11 +148,9 @@ collision_mask = 4
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 visible = false
-position = Vector2(32, 32)
-shape = SubResource("RectangleShape2D_cjvlp")
-debug_color = Color(0.619608, 0.172549, 0.286275, 0.419608)
+polygon = PackedVector2Array(16, -48, 48, -48, 48, 16, 112, 16, 112, 48, 48, 48, 48, 112, 16, 112, 16, 48, -48, 48, -48, 16, 16, 16)
 
 [node name="Place" type="Sprite2D" parent="."]
 visible = false

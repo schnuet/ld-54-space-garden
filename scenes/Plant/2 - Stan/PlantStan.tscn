@@ -135,7 +135,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildCollisionArea"]
 visible = false
-polygon = PackedVector2Array(-48, -48, 112, -48, 112, 16, 176, 16, 176, 184, -48, 184)
+polygon = PackedVector2Array(16, 16, 16.25, -48, 48, -48, 48, 16, 112, 16, 112, 80, 176, 80.5, 176, 114, 112, 112, 112, 176, 15.75, 176, 16, 112, -48, 112, -48, 16.75)
 
 [node name="Place" type="Sprite2D" parent="."]
 visible = false
