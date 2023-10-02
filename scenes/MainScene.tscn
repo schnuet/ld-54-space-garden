@@ -1,4 +1,4 @@
-[gd_scene load_steps=237 format=3 uid="uid://fbk1capf22s7"]
+[gd_scene load_steps=239 format=3 uid="uid://fbk1capf22s7"]
 
 [ext_resource type="PackedScene" uid="uid://d0t1lcxkscwua" path="res://scenes/PlantMap/PlantMap.tscn" id="1_7vaon"]
 [ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_ggjwf"]
@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d0g3xefytabac" path="res://scenes/space_garden_table-light-effectt_back.png" id="8_uww2s"]
 [ext_resource type="Texture2D" uid="uid://r766y3rtegbm" path="res://scenes/PlantButton/button_standard_.png" id="9_r47t7"]
 [ext_resource type="Texture2D" uid="uid://cwr26ejqi4uj1" path="res://scenes/PlantButton/button_hover_.png" id="10_oghla"]
-[ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://assets/fonts/MunroSmall-wPZw.ttf" id="13_p4p20"]
 [ext_resource type="Texture2D" uid="uid://dh6aj7m7txiih" path="res://scenes/space_garden_console.png" id="10_psqy7"]
+[ext_resource type="FontFile" uid="uid://b2jbl0piinbrn" path="res://assets/fonts/MunroSmall-wPZw.ttf" id="13_p4p20"]
 [ext_resource type="Texture2D" uid="uid://baa1r35y3iubo" path="res://scenes/space_garden_table-light-effectt_front.png" id="14_8ly7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kvqp"]
@@ -1740,12 +1740,14 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/OneOfEach"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
 offset_bottom = 19.0
 
 [node name="Label" type="Label" parent="Tasks/VBoxContainer/OneOfEach"]
+layout_mode = 0
 offset_left = 20.0
 offset_right = 131.0
 offset_bottom = 14.0
@@ -1763,6 +1765,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Tasks/VBoxContainer/TwoPurple"]
+layout_mode = 0
 offset_left = 20.0
 offset_right = 143.0
 offset_bottom = 15.0
@@ -1780,6 +1783,7 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_ga4fq")
 
 [node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/TwoPurple"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
@@ -1791,6 +1795,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Tasks/VBoxContainer/TwoRed"]
+layout_mode = 0
 offset_left = 20.0
 offset_right = 143.0
 offset_bottom = 15.0
@@ -1808,6 +1813,7 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_hsl7l")
 
 [node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/TwoRed"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
@@ -1818,6 +1824,7 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Tasks/VBoxContainer/FillTheBoard"]
+layout_mode = 0
 offset_left = 20.0
 offset_right = 143.0
 offset_bottom = 15.0
@@ -1830,6 +1837,7 @@ text = "Fill the board"
 uppercase = true
 
 [node name="CheckBox" type="CheckBox" parent="Tasks/VBoxContainer/FillTheBoard"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = -5.0
 offset_right = 20.0
