@@ -7,7 +7,6 @@ extends Node2D
 @onready var task_container = $Tasks/VBoxContainer;
 
 
-
 func _ready():
 	Game.init_vars();
 	task_panel.hide();
@@ -25,8 +24,6 @@ func _process(_delta):
 	update_tasks_status();
 
 func _on_plant_map_level_changed(level_index):
-	
-	$LevelIndex.text = "Level: " + str(level_index + 1);
 	
 	task_panel.show();
 	var tasks = task_container.get_children();

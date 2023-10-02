@@ -22,7 +22,6 @@ func _ready():
 func _process(_delta):
 	var max_frame = 7;
 	var f = min(max_frame, Game.anim_frame);
-	print(f);
 	
 	$AnimatedSprite2D.frame = f;
 	
