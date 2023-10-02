@@ -2,6 +2,8 @@ extends Node2D
 
 signal cursor_mode_changed(mode);
 
+var anim_frame = 0;
+
 # Space for game-wide variables
 enum PlantType {
 	BHi,
@@ -15,6 +17,12 @@ enum PlantType {
 var cursor_mode = "default";
 
 var found_infection = false;
+@onready var timer = Timer.new();
+
+func _ready():
+	add_child(timer);
+	timer.start(0.5);
+	timer.connect("timeout", update_anim);
 
 func set_cursor_mode(mode):
 	# disable
@@ -31,3 +39,6 @@ func wait(seconds):
 func init_vars():
 	cursor_mode = "default";
 	found_infection = false;
+
+func update_anim():
+	anim_frame = (anim_frame + 1) % 4;

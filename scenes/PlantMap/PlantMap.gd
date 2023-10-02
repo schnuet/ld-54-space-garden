@@ -348,7 +348,6 @@ func is_board_filled() -> bool:
 	
 
 func is_level_done():
-	print(timer.time_left);
 	if timer.time_left:
 		return false;
 	

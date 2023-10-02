@@ -28,7 +28,7 @@ script = ExtResource("1_jq57u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ky0g8")
-animation = &"mid"
+animation = &"sapling"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

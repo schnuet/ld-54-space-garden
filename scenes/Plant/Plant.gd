@@ -36,8 +36,13 @@ func _ready():
 #	grow_timer.connect("timeout", _on_grow_timer);
 #	add_child(grow_timer);
 #	grow_timer.start();
+
+func _process(delta):
+	var max_frame = sprite.sprite_frames.get_frame_count(sprite.animation);
+	var f = min(max_frame, Game.anim_frame);
 	
-	sprite.play();
+	print("update frame", Game.anim_frame, f, max_frame);
+	sprite.frame = f;
 
 func set_state(new_state: GrowthState):
 	if not planted:
