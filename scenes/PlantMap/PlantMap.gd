@@ -195,8 +195,9 @@ func get_mouse_tile_pos():
 #	var map_width = 8 * tile_size;
 #	var map_height = 3 * tile_size;
 #	var scale_strength = local_mouse_pos.y;
-	
-	return Vector2i(floor(local_mouse_pos / tile_size));
+	var vector = Vector2i(floor(local_mouse_pos / tile_size));
+	print(vector);
+	return vector;
 	
 	
 func is_cursor_plant_colliding() -> bool:
@@ -211,24 +212,30 @@ func is_cursor_plant_colliding() -> bool:
 	var plant_collisions = plant_in_cursor.get_overlapping_areas();
 	var mouse_pos = get_mouse_tile_pos();
 	
-	match plant_in_cursor:
-		PlantFrank:
-			if mouse_pos.x + PlantFrank.width > 7:
-				if mouse_pos.y == 1:
-					return true;
-		PlantToni:
-			if mouse_pos.x + PlantToni.width > 7:
-				if mouse_pos.y >= 0 and mouse_pos.y < 3:
-					return true;
-		_:
-			if mouse_pos.x + plant_in_cursor.width > 7:
-				if mouse_pos.y + plant_in_cursor.height > 2:
-					return true;
-				
+
 	
 	for collision in plant_collisions:
 		if collision.is_in_group("plant") or collision.is_in_group("blocker"):
 			return true;
+			
+	match plant_in_cursor.type:
+		"Stan":
+			if mouse_pos.x > 6:
+				return true;
+			elif mouse_pos.y > 1:
+				return true;
+		"Jeff":
+			if mouse_pos.x > 5:
+				return true;
+		"Assi":
+			if mouse_pos.x > 6:
+				return true;
+		"Frank":
+			if mouse_pos.x > 5 or mouse_pos != 1:
+				return true;
+		"Toni":
+			if mouse_pos.x > 5 or mouse_pos.y < 1:
+				return true;
 
 	return false;
 
