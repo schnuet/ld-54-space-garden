@@ -1,5 +1,7 @@
 extends "res://scenes/Plant/Plant.gd"
 
+var height = 2;
+var width = 2;
 
 func _ready():
 	super._ready();

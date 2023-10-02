@@ -204,6 +204,23 @@ func is_cursor_plant_colliding() -> bool:
 	
 	# is place here???
 	var plant_collisions = plant_in_cursor.get_overlapping_areas();
+	var mouse_pos = get_mouse_tile_pos();
+	
+	match plant_in_cursor:
+		PlantFrank:
+			if mouse_pos.x + PlantFrank.width > 7:
+				if mouse_pos.y == 1:
+					return true;
+		PlantToni:
+			if mouse_pos.x + PlantToni.width > 7:
+				if mouse_pos.y >= 0 and mouse_pos.y < 3:
+					return true;
+		_:
+			if mouse_pos.x + plant_in_cursor.width > 7:
+				if mouse_pos.y + plant_in_cursor.height > 2:
+					return true;
+				
+	
 	for collision in plant_collisions:
 		if collision.is_in_group("plant") or collision.is_in_group("blocker"):
 			return true;
