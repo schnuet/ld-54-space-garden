@@ -1855,10 +1855,11 @@ mouse_filter = 2
 
 [node name="Console_up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_l6eag")
-autoplay = true
+volume_db = -10.145
 
 [node name="SpaceStation" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_kbuk1")
+volume_db = -5.707
 autoplay = true
 
 [connection signal="level_changed" from="PlantMap" to="." method="_on_plant_map_level_changed"]

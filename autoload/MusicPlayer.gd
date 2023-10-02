@@ -30,7 +30,7 @@ func fade_to(music_name):
 		tween.tween_property(current_player, "volume_db", -40, time);
 	
 	# fade in
-	tween.tween_property(player, "volume_db", -20, time);
+	tween.tween_property(player, "volume_db", -14, time);
 	
 	current_player = player;
 	
