@@ -73,6 +73,18 @@ var levels = [
 		}
 	}
 ];
+
+var spaces = [
+	{
+		"BHi": 1,
+		"Stan": 3,
+		"Jeff": 3,
+		"Assi": 2,
+		"Frank": 5,
+		"Toni": 4
+	}
+];
+
 var current_level_index = 0;
 
 var paused = false;
@@ -278,6 +290,37 @@ func get_current_level():
 	return levels[current_level_index];
 
 
+func is_one_of_each() -> bool:
+	var active_plants = get_grown_plant_count();
+	var active_level = get_current_level();
+	var required_plants = active_level["required_plants"];
+	
+	var feedback = true;
+	
+	for type in required_plants:
+		if not active_plants[type] >= 1:
+			feedback = false;
+			break;
+	
+	return feedback;
+	
+#func is_board_filled() -> bool:
+#	var active_plants = get_grown_plant_count();
+#	var buff = 0;
+#
+#	for type in active_plants:
+#		buff += active_plants[type] * spaces[type];
+#
+#	match current_level_index:
+#		0: if buff == 
+#		1:
+#		2:
+#		3:
+#		4:
+#		5:
+#	return false;
+	
+
 func is_level_done():
 	var level = get_current_level();
 	
@@ -286,6 +329,7 @@ func is_level_done():
 	
 	var counts = get_grown_plant_count();
 	var plants = get_all_plants();
+	
 	
 	for plant in plants:
 		if not(plant.affected):
@@ -303,7 +347,6 @@ func is_level_done():
 			return false;
 	
 	return true;
-
 
 func _on_mouse_collider_input_event(viewport, event, shape_idx):
 	if paused:
