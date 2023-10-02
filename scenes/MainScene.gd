@@ -77,13 +77,13 @@ func update_tasks_status():
 		
 		match task.name:
 			"OneOfEach":
-				task_fulfilled = false;
+				task_fulfilled = $PlantMap.is_one_of_each();
 			"FillTheBoard":
-				task_fulfilled = false;
+				task_fulfilled = $PlantMap.is_board_filled();
 			"TwoPurple":
-				task_fulfilled = false;
+				task_fulfilled = $PlantMap.is_two_of("BHi");
 			"TwoRed":
-				task_fulfilled = false;
+				task_fulfilled = $PlantMap.is_two_of("Stan");
 		
 		task.get_node("CheckBox").button_pressed = task_fulfilled;
 
