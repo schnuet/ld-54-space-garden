@@ -243,7 +243,7 @@ func is_cursor_plant_colliding() -> bool:
 			if mouse_pos.x > 6:
 				return true;
 		"Frank":
-			if mouse_pos.x > 5 or mouse_pos.x != 1:
+			if mouse_pos.x > 5 or mouse_pos.y != 1:
 				return true;
 		"Toni":
 			if mouse_pos.x > 5 or mouse_pos.y < 1:
