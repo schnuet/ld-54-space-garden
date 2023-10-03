@@ -10,7 +10,6 @@
 script = ExtResource("1_r2vpa")
 
 [node name="SpaceGardenEndscreen" type="Sprite2D" parent="."]
-position = Vector2(327, 184)
 texture = ExtResource("5_2uxsp")
 centered = false
 
@@ -78,10 +77,10 @@ text = "Stefan Hofer
 label_settings = ExtResource("4_4kw8k")
 
 [node name="BackButton" type="Button" parent="."]
-offset_left = 862.0
-offset_top = 500.0
-offset_right = 947.0
-offset_bottom = 521.0
+offset_left = 536.0
+offset_top = 320.0
+offset_right = 621.0
+offset_bottom = 341.0
 theme_override_fonts/font = ExtResource("5_5rgyo")
 theme_override_font_sizes/font_size = 10
 text = "Back to Start"

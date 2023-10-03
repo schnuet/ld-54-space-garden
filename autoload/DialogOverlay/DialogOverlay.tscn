@@ -53,6 +53,7 @@ offset_left = 17.0
 offset_top = 253.0
 offset_right = 487.0
 offset_bottom = 348.0
+mouse_filter = 2
 metadata/_edit_group_ = true
 
 [node name="Speech" type="Label" parent="prof/Panel"]
@@ -79,6 +80,7 @@ offset_left = 148.0
 offset_top = 253.0
 offset_right = 618.0
 offset_bottom = 348.0
+mouse_filter = 2
 metadata/_edit_group_ = true
 
 [node name="Speech" type="Label" parent="chef/Panel"]

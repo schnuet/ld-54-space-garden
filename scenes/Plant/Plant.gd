@@ -42,7 +42,10 @@ func _process(_delta):
 	var max_frame = sprite.sprite_frames.get_frame_count(sprite.animation);
 	var f = min(max_frame, Game.anim_frame);
 	
-	sprite.frame = f;
+	if not is_neutralized():
+		sprite.frame = f;
+	else:
+		sprite.frame = 0;
 
 func set_state(new_state: GrowthState):
 	if not planted:
