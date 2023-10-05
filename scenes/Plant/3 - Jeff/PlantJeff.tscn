@@ -61,7 +61,7 @@ animations = [{
 "texture": ExtResource("2_rpk1y")
 }],
 "loop": true,
-"name": &"death",
+"name": &"dead",
 "speed": 5.0
 }, {
 "frames": [{
