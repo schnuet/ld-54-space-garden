@@ -54,6 +54,23 @@ func set_state(new_state: GrowthState):
 	growth_state = new_state;
 	$AnimatedSprite2D.animation = GrowthState.keys()[new_state];
 
+func get_all_affecting_plants() -> Array[Plant]:
+	await get_tree().physics_frame;
+	
+	var plants:Array[Plant] = [];
+	var areas = $AffectDetect.get_overlapping_areas();
+	
+	for area in areas:
+		var area_plant = area.get_parent();
+		if area_plant == self:
+			continue;
+		if not (area_plant is Plant):
+			continue;
+		if not area_plant.planted:
+			continue;
+		plants.append(area_plant);
+	
+	return plants;
 
 func get_all_neighbour_plants() -> Array[Plant]:
 	await get_tree().physics_frame

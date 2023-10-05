@@ -168,3 +168,13 @@ stream = ExtResource("7_6kej0")
 
 [node name="Plant_delete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_6kej0")
+
+[node name="AffectDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32768
+
+[node name="BuildCollisionBox" type="CollisionShape2D" parent="AffectDetect"]
+visible = false
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_ntare")
+debug_color = Color(1, 0.933333, 0, 0.419608)

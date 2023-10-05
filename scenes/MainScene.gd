@@ -86,6 +86,7 @@ func update_tasks_status():
 		
 		task.get_node("CheckBox").button_pressed = task_fulfilled;
 
+
 func _on_plant_map_level_done(level_index):
 	print("main: level done", level_index);
 	await fade_out_menu();

@@ -9,12 +9,12 @@ func _ready():
 
 
 func _on_plant():
-	super._on_plant();
+	await super._on_plant();
 
-	var plants = await get_all_neighbour_plants();
-	
 	# handle effects to self first
-	for plant in plants:
+	var affecting_plants = await get_all_affecting_plants();
+	print("affecting_plants", affecting_plants);
+	for plant in affecting_plants:
 		if plant == self:
 			continue;
 		plant.affect_plant(self);
@@ -23,6 +23,7 @@ func _on_plant():
 		affected = true;
 		return;
 
+	var plants = await get_all_neighbour_plants();
 	for plant in plants:
 		if plant == self:
 			continue;

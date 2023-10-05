@@ -147,7 +147,6 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BuildCollisionArea"]
-visible = false
 position = Vector2(64, 32)
 shape = SubResource("RectangleShape2D_v1lec")
 debug_color = Color(0.74902, 0.0823529, 0.282353, 0.419608)
@@ -162,3 +161,13 @@ stream = ExtResource("7_tvwsf")
 
 [node name="Plant_delete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_tvwsf")
+
+[node name="AffectDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AffectDetect"]
+visible = false
+position = Vector2(64, 32)
+shape = SubResource("RectangleShape2D_ci3ga")
+metadata/_edit_lock_ = true

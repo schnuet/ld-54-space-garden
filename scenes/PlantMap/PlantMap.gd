@@ -105,7 +105,7 @@ func start():
 #	update_level();
 	emit_signal("level_done", -1);
 #
-func _process(_delta):
+func _physics_process(delta):
 		# position build cursor
 	var mouse_tile_pos = get_mouse_tile_pos();
 	var tile_pos = Vector2i(
