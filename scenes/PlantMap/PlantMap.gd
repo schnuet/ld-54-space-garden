@@ -31,17 +31,23 @@ var tile_size = 64;
 
 var levels = [
 	{
+		"id": 1,
+		"requires_filled_board": true,
 		"required_plants": {
 			"BHi": 3
 		}
 	},
 	{
+		"id": 2,
+		"requires_filled_board": true,
 		"required_plants": {
 			"BHi": 3,
 			"Stan": 1,
 		}
 	},
 	{
+		"id": 3,
+		"requires_filled_board": false,
 		"required_plants": {
 			"BHi": 2,
 			"Stan": 1,
@@ -49,6 +55,8 @@ var levels = [
 		}
 	},
 	{
+		"id": 4,
+		"requires_filled_board": false,
 		"required_plants": {
 			"BHi": 1,
 			"Stan": 1,
@@ -57,6 +65,8 @@ var levels = [
 		}
 	},
 	{
+		"id": 5,
+		"requires_filled_board": false,
 		"required_plants": {
 			"BHi": 1,
 			"Stan": 2,
@@ -66,6 +76,8 @@ var levels = [
 		}
 	},
 	{
+		"id": 6,
+		"requires_filled_board": true,
 		"required_plants": {
 			"BHi": 1,
 			"Stan": 1,
@@ -353,15 +365,18 @@ func is_board_filled() -> bool:
 	return false;
 	
 
-func is_level_done():
+func is_level_done() -> bool:
 	if timer.time_left:
 		return false;
 	
 	var level = get_current_level();
 	
 	if level == null:
-		return;
-	
+		return false;
+		
+	if level["requires_filled_board"] and is_board_filled() == false:
+		return false;
+		
 	var counts = get_grown_plant_count();
 	var plants = get_all_plants();
 	
